@@ -6,9 +6,7 @@ const {
   deleteRecordFromCollection,
 } = require("../controllers/collectionController");
 
-router.get("/", getRecordCollection);
-
-router.post("/", addRecordToCollection);
+router.route("/").get(getRecordCollection).post(addRecordToCollection);
 
 // router.put("/:id", (req, res) => {
 //   res.status(200).json({ message: `Update album ${req.params.id}` });
