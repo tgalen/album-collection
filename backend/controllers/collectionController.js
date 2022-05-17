@@ -5,7 +5,6 @@ const CollectedRecord = require("../models/collectedRecordModel");
 //description: GET record collection
 //@ route GET /api/vinylcollection
 const getRecordCollection = asyncHandler(async (req, res) => {
-  res.set("Access-Control-Allow-Origin", "*");
   const records = await CollectedRecord.find();
 
   res.status(200).json(records);
@@ -33,6 +32,7 @@ const addRecordToCollection = asyncHandler(async (req, res) => {
 //@route DELETE /api/vinylcollection/:id
 const deleteRecordFromCollection = asyncHandler(async (req, res) => {
   const record = await CollectedRecord.findById(req.params.id);
+  res.set("Access-Control-Allow-Origin", "*");
   if (!record) {
     res.status(400);
     throw new Error("Record not found");
