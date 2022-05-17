@@ -5,6 +5,7 @@ const CollectedRecord = require("../models/collectedRecordModel");
 //description: GET record collection
 //@ route GET /api/vinylcollection
 const getRecordCollection = asyncHandler(async (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
   const records = await CollectedRecord.find();
 
   res.status(200).json(records);
