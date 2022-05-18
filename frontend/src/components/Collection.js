@@ -1,4 +1,14 @@
-const collectionStyle = { textAlign: "center" };
+import CollectedRecord from "./CollectedRecord";
+
+const collectionContainerStyle = {
+  display: "grid",
+  gridAutoFlow: "column",
+  gridAutoColumns: "17%",
+  gap: "1%",
+  overflowX: "auto",
+  overscrollBehaviorInline: "contain",
+  width: "100%",
+};
 
 const alphabetContainerStyle = {
   display: "flex",
@@ -11,7 +21,12 @@ const letterContainerStyle = {
   background: "lightblue",
   width: "2.5%",
   borderRadius: "5px",
-  transition: "0.1s",
+  display: "flex",
+  justifyContent: "center",
+};
+
+const collectedRecordStyle = {
+  padding: "1%",
 };
 
 const alphabet = [
@@ -54,19 +69,23 @@ const Collection = ({ collection }) => {
   };
 
   return (
-    <div style={collectionStyle}>
+    <div>
       <h1>Collection</h1>
-      {collection ? (
-        collection.map((album) => {
-          return (
-            <div key={album._id}>
-              <h3>{album.name}</h3>
-            </div>
-          );
-        })
-      ) : (
-        <h1>Such empty. Add some records by searching</h1>
-      )}
+      <div style={collectionContainerStyle}>
+        {collection ? (
+          collection.map((album) => {
+            return (
+              <CollectedRecord
+                style={collectedRecordStyle}
+                key={album.spotify_id}
+                recordDetails={album}
+              />
+            );
+          })
+        ) : (
+          <h1>Such empty. Add some records by searching</h1>
+        )}
+      </div>
       <div style={alphabetContainerStyle}>
         {alphabet.map((letter) => {
           return (

@@ -25,7 +25,7 @@ function App() {
   useEffect(fetchRecordColelction, []);
 
   return (
-    <div>
+    <div style={{ backgroundColor: "lightgrey" }}>
       <Header />
       <Collection collection={collection} />
       <SearchSpotify collection={collection} setCollection={setCollection} />
