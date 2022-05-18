@@ -22,11 +22,7 @@ function App() {
       .catch((error) => console.log(error));
   };
 
-  useEffect(
-    fetchRecordColelction,
-
-    []
-  );
+  useEffect(fetchRecordColelction, []);
 
   return (
     <div>

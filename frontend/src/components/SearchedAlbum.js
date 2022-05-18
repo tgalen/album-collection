@@ -41,8 +41,9 @@ const SearchedAlbum = ({ info }) => {
     fetch("http://localhost:5000/api/vinylcollection", postOptions)
       .then((response) => {
         console.log(response);
+        console.log(postOptions.body);
+        return response;
       })
-      .then((data) => console.log(data))
       .catch((err) => console.log(err));
   };
 

@@ -6,27 +6,14 @@ const collectedRecordSchema = mongoose.Schema(
       type: String,
       required: [true, "Please add an album_type field"],
     },
-    artists: [
-      {
-        external_urls: { spotify: String },
-        href: String,
-        id: String,
-        name: String,
-        type: String,
-        uri: String,
-      },
-    ],
+    artists: [],
     spotify_url: String, // external_urls.spotify
     href: String,
     spotify_id: {
       type: String,
       required: [true, "Please add an spotify_id field"],
     },
-    images: [
-      { height: Number, url: String, width: Number },
-      { height: Number, url: String, width: Number },
-      { height: Number, url: String, width: Number },
-    ],
+    images: [],
     name: {
       type: String,
       required: [true, "Please add a name field"],

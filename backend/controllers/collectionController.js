@@ -19,10 +19,25 @@ const addRecordToCollection = asyncHandler(async (req, res) => {
     throw new Error("Please verify album_type, id, name fields.");
   }
 
+  const reqArtistsList = req.body.artists.map((artist) => {
+    return artist;
+  });
+
+  const reqImagesList = req.body.images.map((image) => {
+    return image;
+  });
+
   const record = await CollectedRecord.create({
     album_type: req.body.album_type,
     spotify_id: req.body.spotify_id,
     name: req.body.name,
+    href: req.body.href,
+    release_date: req.body.release_date,
+    total_tracks: req.body.total_tracks,
+    type: req.body.type,
+    uri: req.body.uri,
+    artists: reqArtistsList,
+    images: reqImagesList,
   });
 
   res.status(200).json(record);
