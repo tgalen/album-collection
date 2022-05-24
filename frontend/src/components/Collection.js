@@ -68,32 +68,42 @@ const Collection = ({ collection }) => {
     e.target.style.background = "lightblue";
   };
 
-  const filterDuplicateArtists = collection.filter(
-    (record, index) => collection.indexOf(record.artists.name) === index
-  );
+  const filterDuplicateArtists =
+    collection &&
+    collection.filter(
+      (record, index) => collection.indexOf(record.artists.name) === index
+    );
 
   console.log(filterDuplicateArtists);
 
-  const collectedArtists = collection.map((record) => {
-    return record.artists[0].name;
-  });
+  const collectedArtists =
+    collection &&
+    collection.map((record) => {
+      return record.artists[0].name;
+    });
 
   console.log(collectedArtists);
 
-  const filterCollectedArtistsDuplicates = collectedArtists.filter(
-    (artist, index) => collectedArtists.indexOf(artist) === index
-  );
+  const filterCollectedArtistsDuplicates =
+    collection &&
+    collectedArtists.filter(
+      (artist, index) => collectedArtists.indexOf(artist) === index
+    );
 
   console.log(filterCollectedArtistsDuplicates);
 
+  // returns an array of objects with each object being the small image album art
   const getArtistRecordCoverArt = (artist) => {
-    // returns an array of objects with each object being the small image album art
-    const artistRecords = collection.filter((album) => {
-      return album.artists[0].name === artist;
-    });
-    const artistRecordCovers = artistRecords.map((album) => {
-      return album.images[2];
-    });
+    const artistRecords =
+      collection &&
+      collection.filter((album) => {
+        return album.artists[0].name === artist;
+      });
+    const artistRecordCovers =
+      collection &&
+      artistRecords.map((album) => {
+        return album.images[2];
+      });
     return artistRecordCovers;
   };
 
@@ -134,23 +144,31 @@ const Collection = ({ collection }) => {
       <div>
         <h2>Artists</h2>
         <div>
-          {filterCollectedArtistsDuplicates.map((artist) => {
-            return (
-              <div
-                style={{
-                  width: "10%",
-                  height: "5%",
-                  border: "1px solid black",
-                }}
-              >
-                <h4>{artist}</h4>
-                <img
-                  src="https://img.icons8.com/ios-filled/50/000000/music-record.png"
-                  style={{ display: "inline-block" }}
-                />
-              </div>
-            );
-          })}
+          {collection &&
+            filterCollectedArtistsDuplicates.map((artist) => {
+              return (
+                <div
+                  key={artist}
+                  style={{
+                    width: "10%",
+                    height: "5%",
+                    border: "1px solid black",
+                  }}
+                >
+                  <h4>{artist}</h4>
+                  <img
+                    src="https://img.icons8.com/ios-filled/50/000000/music-record.png"
+                    style={{ display: "inline-block" }}
+                  />{" "}
+                  {getArtistRecordCoverArt(artist).length}
+                  <div>
+                    {getArtistRecordCoverArt(artist).map((cover) => {
+                      return <img key={cover.url} src={cover.url} />;
+                    })}
+                  </div>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>
