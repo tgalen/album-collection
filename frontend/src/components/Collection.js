@@ -1,4 +1,5 @@
 // import CollectedRecord from "./CollectedRecord";
+import { useState } from "react";
 import ArtistCard from "./ArtistCard";
 
 const alphabetContainerStyle = {
@@ -11,6 +12,14 @@ const alphabetContainerStyle = {
 
 const letterContainerStyle = {
   background: "lightblue",
+  width: "2.5%",
+  borderRadius: "5px",
+  display: "flex",
+  justifyContent: "center",
+};
+
+const selectedLetterContainerStyle = {
+  background: "pink",
   width: "2.5%",
   borderRadius: "5px",
   display: "flex",
@@ -56,14 +65,7 @@ const artistContainerStyle = {
 };
 
 const Collection = ({ collection }) => {
-  const handleMouseEnterLetter = (e) => {
-    e.target.style.background = "yellow";
-    e.target.style.cursor = "pointer";
-  };
-
-  const handleMouseLeaveLetter = (e) => {
-    e.target.style.background = "lightblue";
-  };
+  const [artistLetterFilter, setArtistLetterFilter] = useState(null);
 
   const collectedArtists =
     collection &&
@@ -78,10 +80,27 @@ const Collection = ({ collection }) => {
     );
 
   const sortFilteredCollectedArtistsAlphabetically =
+    collection &&
     filterCollectedArtistsDuplicates.sort(function (a, b) {
       // Return 1 left hand side (a) is greater, -1 if not greater.
       return a.replace(/^The /, "") > b.replace(/^The /, "") ? 1 : -1;
     });
+
+  // filter by first letter of artist excluding "the"
+  const filterSortedArtistsByLetter =
+    collection &&
+    sortFilteredCollectedArtistsAlphabetically.filter((artist) => {
+      if (artistLetterFilter) {
+        return artist.replace(/^The /, "")[0] === artistLetterFilter;
+      }
+      return artist;
+    });
+
+  const handleLetterClick = (letter) => {
+    artistLetterFilter === letter
+      ? setArtistLetterFilter(null)
+      : setArtistLetterFilter(letter);
+  };
 
   return (
     <div>
@@ -89,10 +108,13 @@ const Collection = ({ collection }) => {
         {alphabet.map((letter) => {
           return (
             <div
-              style={letterContainerStyle}
-              onMouseEnter={handleMouseEnterLetter}
-              onMouseLeave={handleMouseLeaveLetter}
+              style={
+                artistLetterFilter === letter
+                  ? selectedLetterContainerStyle
+                  : letterContainerStyle
+              }
               key={letter}
+              onClick={() => handleLetterClick(letter)}
             >
               {letter}
             </div>
@@ -100,10 +122,10 @@ const Collection = ({ collection }) => {
         })}
       </div>
       <div>
-        <h2 style={{ marginLeft: "1%" }}>Artists</h2>
+        <h2 style={{ marginLeft: "1%" }}>Artists {artistLetterFilter}</h2>
         <div style={artistContainerStyle}>
           {collection &&
-            sortFilteredCollectedArtistsAlphabetically.map((artist) => {
+            filterSortedArtistsByLetter.map((artist) => {
               return (
                 <ArtistCard
                   collection={collection}
