@@ -5,7 +5,7 @@ const headerStyle = {
 const Header = () => {
   return (
     <div style={headerStyle}>
-      <h1>Album Library</h1>
+      <h1>Tim's Record Collection</h1>
     </div>
   );
 };
