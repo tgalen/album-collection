@@ -3,14 +3,14 @@ import Header from "./components/Header";
 import Collection from "./components/Collection";
 import SearchSpotify from "./components/SearchSpotify";
 
-const artistCardStyle = {
-  height: "400px",
-  width: " 400px",
-  border: "1px solid grey",
-  borderRadius: "5px",
-  textAlign: "center",
-  display: "block",
-};
+// const artistCardStyle = {
+//   height: "400px",
+//   width: " 400px",
+//   border: "1px solid grey",
+//   borderRadius: "5px",
+//   textAlign: "center",
+//   display: "block",
+// };
 
 function App() {
   const [collection, setCollection] = useState(null);

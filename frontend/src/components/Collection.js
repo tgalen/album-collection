@@ -1,20 +1,22 @@
-import CollectedRecord from "./CollectedRecord";
+// import CollectedRecord from "./CollectedRecord";
+import ArtistCard from "./ArtistCard";
 
-const collectionContainerStyle = {
-  display: "grid",
-  gridAutoFlow: "column",
-  gridAutoColumns: "17%",
-  gap: "1%",
-  overflowX: "auto",
-  overscrollBehaviorInline: "contain",
-  width: "100%",
-};
+// const collectionContainerStyle = {
+//   display: "grid",
+//   gridAutoFlow: "column",
+//   gridAutoColumns: "17%",
+//   gap: "1%",
+//   overflowX: "auto",
+//   overscrollBehaviorInline: "contain",
+//   width: "100%",
+// };
 
 const alphabetContainerStyle = {
   display: "flex",
   justifyContent: "space-around",
   borderRadius: "10px",
-  width: "100%",
+  width: "98%",
+  padding: "1%",
 };
 
 const letterContainerStyle = {
@@ -25,9 +27,9 @@ const letterContainerStyle = {
   justifyContent: "center",
 };
 
-const collectedRecordStyle = {
-  padding: "1%",
-};
+// const collectedRecordStyle = {
+//   padding: "1%",
+// };
 
 const alphabet = [
   "A",
@@ -57,6 +59,12 @@ const alphabet = [
   "Y",
   "Z",
 ];
+
+const artistContainerStyle = {
+  height: "fit-content",
+  width: "100%",
+  display: "inline",
+};
 
 const Collection = ({ collection }) => {
   const handleMouseEnterLetter = (e) => {
@@ -90,24 +98,9 @@ const Collection = ({ collection }) => {
       (artist, index) => collectedArtists.indexOf(artist) === index
     );
 
-  console.log(filterCollectedArtistsDuplicates);
-
-  // returns an array of objects with each object being the small image album art
-  const getArtistRecordCoverArt = (artist) => {
-    const artistRecords =
-      collection &&
-      collection.filter((album) => {
-        return album.artists[0].name === artist;
-      });
-    const artistRecordCovers =
-      collection &&
-      artistRecords.map((album) => {
-        return album.images[2];
-      });
-    return artistRecordCovers;
-  };
-
-  console.log(getArtistRecordCoverArt("The Beatles"));
+  console.log(
+    "filerCollectedArtistsDuplicates:" + filterCollectedArtistsDuplicates
+  );
 
   return (
     <div>
@@ -126,7 +119,7 @@ const Collection = ({ collection }) => {
           );
         })}
       </div>
-      <div style={collectionContainerStyle}>
+      {/* <div style={collectionContainerStyle}>
         {collection ? (
           collection.map((album) => {
             return (
@@ -140,33 +133,40 @@ const Collection = ({ collection }) => {
         ) : (
           <h1>Such empty. Add some records by searching</h1>
         )}
-      </div>
+      </div> */}
       <div>
         <h2>Artists</h2>
-        <div>
+        <div style={artistContainerStyle}>
           {collection &&
             filterCollectedArtistsDuplicates.map((artist) => {
+              //   return (
+              //     <div
+              //       key={artist}
+              //       style={{
+              //         width: "10%",
+              //         height: "5%",
+              //         border: "1px solid black",
+              //       }}
+              //     >
+              //       <h4>{artist}</h4>
+              // <img
+              //   src="https://img.icons8.com/ios-filled/50/000000/music-record.png"
+              //   style={{ display: "inline-block" }}
+              // />{" "}
+              //       {getArtistRecordCoverArt(artist).length}
+              //       <div>
+              //         {getArtistRecordCoverArt(artist).map((cover) => {
+              //           return <img key={cover.url} src={cover.url} />;
+              //         })}
+              //       </div>
+              //     </div>
+              //   );
               return (
-                <div
+                <ArtistCard
+                  collection={collection}
+                  artist={artist}
                   key={artist}
-                  style={{
-                    width: "10%",
-                    height: "5%",
-                    border: "1px solid black",
-                  }}
-                >
-                  <h4>{artist}</h4>
-                  <img
-                    src="https://img.icons8.com/ios-filled/50/000000/music-record.png"
-                    style={{ display: "inline-block" }}
-                  />{" "}
-                  {getArtistRecordCoverArt(artist).length}
-                  <div>
-                    {getArtistRecordCoverArt(artist).map((cover) => {
-                      return <img key={cover.url} src={cover.url} />;
-                    })}
-                  </div>
-                </div>
+                />
               );
             })}
         </div>
