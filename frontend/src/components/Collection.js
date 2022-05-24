@@ -77,6 +77,12 @@ const Collection = ({ collection }) => {
       (artist, index) => collectedArtists.indexOf(artist) === index
     );
 
+  const sortFilteredCollectedArtistsAlphabetically =
+    filterCollectedArtistsDuplicates.sort(function (a, b) {
+      // Return 1 left hand side (a) is greater, -1 if not greater.
+      return a.replace(/^The /, "") > b.replace(/^The /, "") ? 1 : -1;
+    });
+
   return (
     <div>
       <div style={alphabetContainerStyle}>
@@ -97,7 +103,7 @@ const Collection = ({ collection }) => {
         <h2 style={{ marginLeft: "1%" }}>Artists</h2>
         <div style={artistContainerStyle}>
           {collection &&
-            filterCollectedArtistsDuplicates.map((artist) => {
+            sortFilteredCollectedArtistsAlphabetically.map((artist) => {
               return (
                 <ArtistCard
                   collection={collection}
