@@ -34,7 +34,13 @@ function App() {
   useEffect(fetchRecordColelction, []);
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: "azure",
+        margin: "auto",
+        height: "100%",
+      }}
+    >
       <Header />
       <Collection collection={collection} />
       <SearchSpotify collection={collection} setCollection={setCollection} />

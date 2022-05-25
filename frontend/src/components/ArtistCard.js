@@ -1,12 +1,14 @@
 const artistCardStyle = {
   width: "20%",
   height: "100px",
-  border: "1px solid black",
+  //   border: "1px solid black",
   display: "flex",
   margin: "0.5%",
   padding: "0.3%",
   position: "relative",
   borderRadius: "5px",
+  boxShadow: "2px 2px 2px gray",
+  backgroundColor: "aliceblue",
 };
 
 const numOfRecordsByArtistStyle = {
