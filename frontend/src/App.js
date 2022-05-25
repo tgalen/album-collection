@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Collection from "./components/Collection";
@@ -34,16 +35,22 @@ function App() {
   useEffect(fetchRecordColelction, []);
 
   return (
-    <div
-      style={{
-        backgroundColor: "azure",
-        margin: "auto",
-        height: "100%",
-      }}
-    >
-      <Header />
-      <Collection collection={collection} />
-      <SearchSpotify collection={collection} setCollection={setCollection} />
+    <div>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Collection collection={collection} />} />
+          <Route
+            path="/searchspotify"
+            element={
+              <SearchSpotify
+                collection={collection}
+                setCollection={setCollection}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

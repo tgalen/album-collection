@@ -8,7 +8,7 @@ const artistCardStyle = {
   position: "relative",
   borderRadius: "5px",
   boxShadow: "2px 2px 2px gray",
-  backgroundColor: "aliceblue",
+  backgroundColor: "snow",
 };
 
 const numOfRecordsByArtistStyle = {

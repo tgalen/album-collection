@@ -23,7 +23,7 @@ const SearchSpotify = ({ collection, setCollection }) => {
 
   const handleAuthorize = () => {
     const CLIENT_ID = "1debe1e800a747d9bd9ea97eff1d12fe";
-    const REDIRECT_URI = "http://localhost:3000";
+    const REDIRECT_URI = "http://localhost:3000/searchspotify";
     let URL = "https://accounts.spotify.com/authorize";
     URL += "?response_type=token";
     URL += "&client_id=" + encodeURIComponent(CLIENT_ID);
