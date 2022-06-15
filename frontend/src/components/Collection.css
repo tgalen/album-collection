@@ -1,0 +1,32 @@
+#alphabet-container {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10px;
+  width: 98%;
+  padding: 1%;
+}
+
+#letter-container {
+  background: lightblue;
+  width: 2.5%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+#selected-letter-container {
+  background: pink;
+  width: 2.5%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+#artist-container {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}

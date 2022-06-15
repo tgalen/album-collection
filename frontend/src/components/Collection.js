@@ -1,30 +1,7 @@
 // import CollectedRecord from "./CollectedRecord";
 import { useState } from "react";
 import ArtistCard from "./ArtistCard";
-
-const alphabetContainerStyle = {
-  display: "flex",
-  justifyContent: "space-around",
-  borderRadius: "10px",
-  width: "98%",
-  padding: "1%",
-};
-
-const letterContainerStyle = {
-  background: "lightblue",
-  width: "2.5%",
-  borderRadius: "5px",
-  display: "flex",
-  justifyContent: "center",
-};
-
-const selectedLetterContainerStyle = {
-  background: "pink",
-  width: "2.5%",
-  borderRadius: "5px",
-  display: "flex",
-  justifyContent: "center",
-};
+import "./Collection.css";
 
 const alphabet = [
   "A",
@@ -54,15 +31,6 @@ const alphabet = [
   "Y",
   "Z",
 ];
-
-const artistContainerStyle = {
-  height: "fit-content",
-  width: "100%",
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  justifyContent: "flex-start",
-};
 
 const Collection = ({ collection }) => {
   const [artistLetterFilter, setArtistLetterFilter] = useState(null);
@@ -108,14 +76,14 @@ const Collection = ({ collection }) => {
 
   return (
     <div>
-      <div style={alphabetContainerStyle}>
+      <div id="alphabet-container">
         {alphabet.map((letter) => {
           return (
             <div
-              style={
+              id={
                 artistLetterFilter === letter
-                  ? selectedLetterContainerStyle
-                  : letterContainerStyle
+                  ? "selected-letter-container"
+                  : "letter-container"
               }
               key={letter}
               onClick={() => handleLetterClick(letter)}
@@ -128,7 +96,7 @@ const Collection = ({ collection }) => {
       </div>
       <div>
         <h2 style={{ marginLeft: "1%" }}>Artists {artistLetterFilter}</h2>
-        <div style={artistContainerStyle}>
+        <div id="artist-container">
           {collection &&
             filterSortedArtistsByLetter.map((artist) => {
               return (
