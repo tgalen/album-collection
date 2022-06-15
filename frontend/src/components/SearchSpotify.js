@@ -1,20 +1,7 @@
 import { useState } from "react";
 import SearchedAlbum from "./SearchedAlbum";
 
-const cardContianerStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-  width: "80%",
-  textAlign: "center",
-  margin: "auto",
-};
-
-const authorizeBtnStyle = {
-  backgroundColor: "lightblue",
-  padding: "10px",
-  borderRadius: "5px",
-  margin: "10px",
-};
+import "./SearchSpotify.css";
 
 const SearchSpotify = ({ collection, setCollection }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -75,7 +62,7 @@ const SearchSpotify = ({ collection, setCollection }) => {
 
   return (
     <div>
-      <button style={authorizeBtnStyle} onClick={handleAuthorize}>
+      <button id="authorize-button" onClick={handleAuthorize}>
         Get Token
       </button>
       <input
@@ -86,7 +73,7 @@ const SearchSpotify = ({ collection, setCollection }) => {
       <button onClick={handleSearch}>Search</button>
 
       {searchResults && (
-        <div style={cardContianerStyle}>
+        <div id="album-conatainer">
           {searchResults.map((album) => {
             return (
               <div key={album.id}>
