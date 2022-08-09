@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Collection from "./components/Collection";
 import SearchSpotify from "./components/SearchSpotify";
+import ArtistsAlbums from "./components/ArtistsAlbums";
 
 // const artistCardStyle = {
 //   height: "400px",
@@ -40,6 +41,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Collection collection={collection} />} />
+          <Route path="/:id" element={<ArtistsAlbums />} />
           <Route
             path="/searchspotify"
             element={

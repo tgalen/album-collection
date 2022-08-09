@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./Header.css";
 const headerStyle = {
   padding: "2%",
   position: "relative",
@@ -11,7 +12,7 @@ const navStyle = {
 
 const Header = () => {
   return (
-    <div style={headerStyle}>
+    <div id="header">
       <h1 style={{ margin: "0", textAlign: "center" }}>
         Tim's Record Collection
       </h1>
