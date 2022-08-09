@@ -41,7 +41,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Collection collection={collection} />} />
-          <Route path="/:id" element={<ArtistsAlbums />} />
+          <Route
+            path="/:id"
+            element={<ArtistsAlbums collection={collection} />}
+          />
           <Route
             path="/searchspotify"
             element={

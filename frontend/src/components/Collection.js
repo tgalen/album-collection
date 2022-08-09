@@ -100,9 +100,9 @@ const Collection = ({ collection }) => {
         <div id="artist-container">
           {collection &&
             filterSortedArtistsByLetter.map((artist) => {
-              const linkArtistInfo = { ...artist };
+              console.log(artist);
               return (
-                <Link to={`${artist}`}>
+                <Link to={`${artist}`} state={artist}>
                   <ArtistCard
                     collection={collection}
                     artist={artist}
