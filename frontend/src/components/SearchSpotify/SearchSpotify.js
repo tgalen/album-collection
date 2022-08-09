@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SearchedAlbum from "./SearchedAlbum";
+import SearchedAlbum from "../SearchedAlbum/SearchedAlbum";
 
 import "./SearchSpotify.css";
 

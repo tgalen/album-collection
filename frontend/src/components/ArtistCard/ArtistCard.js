@@ -68,9 +68,9 @@ const ArtistCard = ({ collection, artist }) => {
         </h2>
       </div>
       <div style={albumArtContainerStyle}>
-        {getArtistRecordCoverArt(artist).map((cover) => {
+        {getArtistRecordCoverArt(artist).map((cover, index) => {
           return (
-            <div style={coverArtContainerStyle}>
+            <div style={coverArtContainerStyle} key={index}>
               <img src={cover.url} alt={artist} />
             </div>
           );

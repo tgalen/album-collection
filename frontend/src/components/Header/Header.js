@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
-const headerStyle = {
-  padding: "2%",
-  position: "relative",
-};
+// const headerStyle = {
+//   padding: "2%",
+//   position: "relative",
+// };
 
 const navStyle = {
   position: "absolute",

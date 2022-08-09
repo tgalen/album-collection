@@ -1,7 +1,7 @@
 // import CollectedRecord from "./CollectedRecord";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import ArtistCard from "./ArtistCard";
+import ArtistCard from "../ArtistCard/ArtistCard";
 import "./Collection.css";
 
 const alphabet = [
@@ -100,9 +100,8 @@ const Collection = ({ collection }) => {
         <div id="artist-container">
           {collection &&
             filterSortedArtistsByLetter.map((artist) => {
-              console.log(artist);
               return (
-                <Link to={`${artist}`} state={artist}>
+                <Link to={`${artist}`} state={artist} key={artist}>
                   <ArtistCard
                     collection={collection}
                     artist={artist}

@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Header from "./components/Header";
-import Collection from "./components/Collection";
-import SearchSpotify from "./components/SearchSpotify";
-import ArtistsAlbums from "./components/ArtistsAlbums";
+import Header from "./components/Header/Header";
+import Collection from "./components/Collection/Collection";
+import SearchSpotify from "./components/SearchSpotify/SearchSpotify";
+import ArtistsAlbums from "./components/ArtistsAlbums/ArtistsAlbums";
 
 // const artistCardStyle = {
 //   height: "400px",
