@@ -71,10 +71,6 @@ const Collection = ({ collection }) => {
       : setArtistLetterFilter(letter);
   };
 
-  const handleMouseEnterLetter = (e) => {
-    e.target.style.cursor = "pointer";
-  };
-
   return (
     <div>
       <div id="alphabet-container">
@@ -88,7 +84,6 @@ const Collection = ({ collection }) => {
               }
               key={letter}
               onClick={() => handleLetterClick(letter)}
-              onMouseEnter={handleMouseEnterLetter}
             >
               {letter}
             </div>
