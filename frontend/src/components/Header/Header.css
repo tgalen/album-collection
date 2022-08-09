@@ -2,3 +2,24 @@
   padding: 2%;
   position: relative;
 }
+
+h1 {
+  text-align: center;
+}
+
+.nav-container {
+  position: absolute;
+  left: 2%;
+  top: 40%;
+  display: flex;
+  width: 20%;
+}
+
+.nav-container a {
+  margin: 5%;
+  width: fit-content;
+  height: 10%;
+  padding: 2%;
+  border-radius: 5px;
+  background-color: cornflowerblue;
+}

@@ -5,24 +5,13 @@ import "./Header.css";
 //   position: "relative",
 // };
 
-const navStyle = {
-  position: "absolute",
-  left: "2%",
-};
-
 const Header = () => {
   return (
     <div id="header">
-      <h1 style={{ margin: "0", textAlign: "center" }}>
-        Tim's Record Collection
-      </h1>
-      <div styile={navStyle}>
-        <Link to="/">
-          <button>Collection</button>
-        </Link>
-        <Link to="/searchspotify">
-          <button>Add Record</button>
-        </Link>
+      <h1>Tim's Record Collection</h1>
+      <div className="nav-container">
+        <Link to="/">Collection</Link>
+        <Link to="/searchspotify">Add Record</Link>
       </div>
     </div>
   );

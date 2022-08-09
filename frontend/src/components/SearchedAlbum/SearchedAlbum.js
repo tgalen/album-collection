@@ -58,8 +58,3 @@ const SearchedAlbum = ({ info }) => {
 };
 
 export default SearchedAlbum;
-
-// title={album.name}
-//                   artist={album.artists[0].name}
-//                   cover={album.images[1].url}
-//                   albumInfo={album}
