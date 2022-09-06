@@ -15,13 +15,14 @@ const ArtistCard = ({ collection, artist }) => {
       });
     return artistRecordCovers;
   };
+
   // console.log(getArtistRecordCoverArt(artist));
 
   return (
     <div
       className="artist-card"
       style={{
-        backgroundImage: `url("${getArtistRecordCoverArt(artist, 0)[0].url}")`,
+        backgroundImage: `url("${getArtistRecordCoverArt(artist, 1)[0].url}")`,
       }}
     >
       <h3>{artist}</h3>

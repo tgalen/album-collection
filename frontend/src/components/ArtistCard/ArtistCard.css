@@ -8,7 +8,9 @@
   border-radius: 5px;
   box-shadow: 2px 2px 2px gray;
   overflow: hidden;
-  background-position: center;
+  background-position: 0% 30%;
+  filter: grayscale(90%);
+  background: no-repeat;
 }
 
 .artist-record-count {
