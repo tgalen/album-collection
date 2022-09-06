@@ -7,7 +7,9 @@
   position: relative;
   border-radius: 5px;
   box-shadow: 2px 2px 2px gray;
-  background-color: snow;
+  background-color: yellow;
+  overflow: hidden;
+  background-position: center;
 }
 
 .artist-record-count {

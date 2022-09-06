@@ -2,7 +2,7 @@ import "./ArtistCard.css";
 
 const ArtistCard = ({ collection, artist }) => {
   // returns an array of objects with each object being the small image album art
-  const getArtistRecordCoverArt = (targetArtist) => {
+  const getArtistRecordCoverArt = (targetArtist, imageSize) => {
     const artistRecords =
       collection &&
       collection.filter((album) => {
@@ -11,13 +11,19 @@ const ArtistCard = ({ collection, artist }) => {
     const artistRecordCovers =
       collection &&
       artistRecords.map((album) => {
-        return album.images[2];
+        return album.images[imageSize];
       });
     return artistRecordCovers;
   };
+  // console.log(getArtistRecordCoverArt(artist));
 
   return (
-    <div className="artist-card">
+    <div
+      className="artist-card"
+      style={{
+        backgroundImage: `url("${getArtistRecordCoverArt(artist, 0)[0].url}")`,
+      }}
+    >
       <h3>{artist}</h3>
       <div className="artist-record-count">
         <img
@@ -35,7 +41,7 @@ const ArtistCard = ({ collection, artist }) => {
         </h2>
       </div>
       <div className="album-art-container">
-        {getArtistRecordCoverArt(artist).map((cover, index) => {
+        {getArtistRecordCoverArt(artist, 2).map((cover, index) => {
           return (
             <div className="album-art" key={index}>
               <img src={cover.url} alt={artist} />
