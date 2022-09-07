@@ -23,7 +23,7 @@ const ArtistCard = ({ collection, artist }) => {
       <div
         className="artist-album-image"
         style={{
-          backgroundImage: `url("${
+          backgroundImage: `linear-gradient(to right, transparent, 25%, black), url("${
             getArtistRecordCoverArt(artist, 0)[0].url
           }")`,
         }}
