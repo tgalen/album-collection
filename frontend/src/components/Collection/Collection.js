@@ -92,7 +92,7 @@ const Collection = ({ collection }) => {
       </div>
       <div>
         <h2 style={{ marginLeft: "1%" }}>Artists {artistLetterFilter}</h2>
-        <div id="artist-container">
+        <div id="artists-container">
           {collection &&
             filterSortedArtistsByLetter.map((artist) => {
               return (

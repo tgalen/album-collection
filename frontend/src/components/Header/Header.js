@@ -8,7 +8,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <div id="header">
-      <h1>Tim's Record Collection</h1>
+      <h1>Record Keeper</h1>
       <div className="nav-container">
         <Link to="/">Collection</Link>
         <Link to="/searchspotify">Add Record</Link>

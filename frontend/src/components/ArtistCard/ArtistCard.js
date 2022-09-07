@@ -19,38 +19,58 @@ const ArtistCard = ({ collection, artist }) => {
   // console.log(getArtistRecordCoverArt(artist));
 
   return (
-    <div
-      className="artist-card"
-      style={{
-        backgroundImage: `url("${getArtistRecordCoverArt(artist, 1)[0].url}")`,
-      }}
-    >
-      <h3>{artist}</h3>
-      <div className="artist-record-count">
-        <img
-          src="https://img.icons8.com/ios-filled/50/000000/music-record.png"
-          alt="recordIcon"
-          style={{
-            height: "20px",
-            width: "20px",
-            display: "inline",
-            margin: "auto",
-          }}
-        />
-        <h2 style={{ display: "inline", padding: "5px" }}>
-          {getArtistRecordCoverArt(artist).length}
-        </h2>
-      </div>
-      <div className="album-art-container">
-        {getArtistRecordCoverArt(artist, 2).map((cover, index) => {
-          return (
-            <div className="album-art" key={index}>
-              <img src={cover.url} alt={artist} />
-            </div>
-          );
-        })}
+    <div className="artist-card-container">
+      <div
+        className="artist-album-image"
+        style={{
+          backgroundImage: `url("${
+            getArtistRecordCoverArt(artist, 0)[0].url
+          }")`,
+        }}
+      ></div>
+      <div className="artist-collection-details">
+        <h3>{artist}</h3>
+        <div className="artist-collection-count">
+          <img
+            src="https://img.icons8.com/ios-filled/50/000000/music-record.png"
+            alt="recordIcon"
+          />
+          <h2>{getArtistRecordCoverArt(artist).length}</h2>
+        </div>
       </div>
     </div>
+    // <div
+    //   className="artist-card"
+    //   style={{
+    //     backgroundImage: `url("${getArtistRecordCoverArt(artist, 0)[0].url}")`,
+    //   }}
+    // >
+    //   <h3>{artist}</h3>
+    //   <div className="artist-record-count">
+    //     <img
+    //       src="https://img.icons8.com/ios-filled/50/000000/music-record.png"
+    //       alt="recordIcon"
+    //       style={{
+    //         height: "20px",
+    //         width: "20px",
+    //         display: "inline",
+    //         margin: "auto",
+    //       }}
+    //     />
+    //     <h2 style={{ display: "inline", padding: "5px" }}>
+    //       {getArtistRecordCoverArt(artist).length}
+    //     </h2>
+    //   </div>
+    //   <div className="album-art-container">
+    //     {getArtistRecordCoverArt(artist, 2).map((cover, index) => {
+    //       return (
+    //         <div className="album-art" key={index}>
+    //           <img src={cover.url} alt={artist} />
+    //         </div>
+    //       );
+    //     })}
+    //   </div>
+    // </div>
   );
 };
 
