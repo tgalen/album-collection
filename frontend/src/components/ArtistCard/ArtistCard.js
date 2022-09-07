@@ -1,5 +1,6 @@
 import "./ArtistCard.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRecordVinyl } from "@fortawesome/free-solid-svg-icons";
 const ArtistCard = ({ collection, artist }) => {
   // returns an array of objects with each object being the small image album art
   const getArtistRecordCoverArt = (targetArtist, imageSize) => {
@@ -23,7 +24,7 @@ const ArtistCard = ({ collection, artist }) => {
       <div
         className="artist-album-image"
         style={{
-          backgroundImage: `linear-gradient(to right, transparent, 25%, black), url("${
+          backgroundImage: `linear-gradient(to right, transparent, 50%, black), url("${
             getArtistRecordCoverArt(artist, 0)[0].url
           }")`,
         }}
@@ -31,10 +32,7 @@ const ArtistCard = ({ collection, artist }) => {
       <div className="artist-collection-details">
         <h3>{artist}</h3>
         <div className="artist-collection-count">
-          <img
-            src="https://img.icons8.com/ios-filled/50/000000/music-record.png"
-            alt="recordIcon"
-          />
+          <FontAwesomeIcon icon={faRecordVinyl} className="record-icon" />
           <h2>{getArtistRecordCoverArt(artist).length}</h2>
         </div>
       </div>
