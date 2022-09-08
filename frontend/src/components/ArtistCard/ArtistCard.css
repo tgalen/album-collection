@@ -3,7 +3,6 @@
   height: 100%;
   display: flex;
   border-radius: 15px;
-  border: solid 1px;
   background-color: black;
   color: aliceblue;
   max-width: 900px;
@@ -16,7 +15,6 @@
   display: inline-block;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
-  color: white;
 }
 
 .artist-collection-details {
@@ -24,7 +22,7 @@
   width: 30%;
   display: inline-block;
   margin: auto;
-  color: #d8d8d8;
+  color: #7f7f7f;
 }
 
 .artist-collection-details h3 {
@@ -55,41 +53,3 @@
   overflow: visible;
   margin-left: 1%;
 }
-
-/* .artist-card {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  margin: 0.5%;
-  padding: 0.3%;
-  position: relative;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px gray;
-  overflow: hidden;
-  background-position: 0% 30%;
-  filter: grayscale(70%);
-  background: no-repeat;
-}
-
-.artist-record-count {
-  display: inline-block;
-  height: 20px;
-  margin-top: 1%;
-  position: absolute;
-  bottom: 15%;
-}
-
-.album-art-container {
-  position: absolute;
-  right: 2px;
-  bottom: 5%;
-  height: 90%;
-  width: 50%;
-  display: inline-block;
-}
-
-.album-art {
-  float: right;
-  margin: 1px;
-  margin-top: 20px;
-} */

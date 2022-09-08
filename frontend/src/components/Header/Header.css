@@ -3,8 +3,13 @@
   position: relative;
 }
 
-h1 {
+.logo-container {
+  width: 100%;
   text-align: center;
+}
+
+.logo-container img {
+  height: 50px;
 }
 
 .nav-container {

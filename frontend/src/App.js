@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import Collection from "./components/Collection/Collection";
 import SearchSpotify from "./components/SearchSpotify/SearchSpotify";
 import ArtistsAlbums from "./components/ArtistsAlbums/ArtistsAlbums";
-
+import "./App.css";
 // const artistCardStyle = {
 //   height: "400px",
 //   width: " 400px",
@@ -36,7 +36,7 @@ function App() {
   useEffect(fetchRecordColelction, []);
 
   return (
-    <div>
+    <div className="main-app">
       <BrowserRouter>
         <Header />
         <Routes>

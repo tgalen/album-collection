@@ -1,6 +1,6 @@
-import "./ArtistCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRecordVinyl } from "@fortawesome/free-solid-svg-icons";
+import "./ArtistCard.css";
 const ArtistCard = ({ collection, artist }) => {
   // returns an array of objects with each object being the small image album art
   const getArtistRecordCoverArt = (targetArtist, imageSize) => {
