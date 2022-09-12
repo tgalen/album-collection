@@ -52,6 +52,9 @@ const deleteRecordFromCollection = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Record not found");
   }
+
+  await record.remove();
+
   res.status(200).json({ message: `Delete album ${req.params.id}` });
 });
 
