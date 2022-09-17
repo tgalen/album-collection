@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const collectedRecordSchema = mongoose.Schema(
   {
-    users: [],
     album_type: {
       type: String,
       required: [true, "Please add an album_type field"],

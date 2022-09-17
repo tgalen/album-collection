@@ -9,7 +9,6 @@ const CollectedRecord = ({ recordDetails }) => {
     )
       .then((response) => {
         console.log(response);
-        console.log(deletOptions.body);
       })
       .catch((err) => console.log(err));
   };
