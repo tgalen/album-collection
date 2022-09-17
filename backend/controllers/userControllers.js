@@ -38,7 +38,16 @@ const updateUser = asyncHandler(async (req, res) => {
 //route /api/users:id
 //@access Private
 const deleteUser = asyncHandler(async (req, res) => {
-  res.status(200).json({ messgae: "Delete user" });
+  const userToDelete = await User.findById(req.params.id);
+  res.set("Access-Control-Allow-Origin", "*");
+  if (!userToDelete) {
+    res.status(400);
+    throw new Error("User not found.");
+  }
+
+  await userToDelete.remove();
+
+  res.status(200).json({ message: `Delete user ${req.params.id}` });
 });
 
 module.exports = {
