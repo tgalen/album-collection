@@ -1,11 +1,12 @@
 const asyncHandler = require("express-async-handler");
 
-const CollectedRecord = require("../models/collectedRecordModel");
+const Record = require("../models/recordModel");
 
 //description: GET record collection
 //@ route GET /api/vinylcollection
+// https://www.mongodb.com/docs/manual/reference/operator/query/elemMatch/
 const getRecordCollection = asyncHandler(async (req, res) => {
-  const records = await CollectedRecord.find();
+  const records = await Record.find();
 
   res.status(200).json(records);
 });
@@ -27,7 +28,7 @@ const addRecordToCollection = asyncHandler(async (req, res) => {
     return image;
   });
 
-  const record = await CollectedRecord.create({
+  const record = await Record.create({
     album_type: req.body.album_type,
     spotify_id: req.body.spotify_id,
     name: req.body.name,
@@ -46,7 +47,7 @@ const addRecordToCollection = asyncHandler(async (req, res) => {
 //decription: DELETE record from collection
 //@route DELETE /api/vinylcollection/:id
 const deleteRecordFromCollection = asyncHandler(async (req, res) => {
-  const record = await CollectedRecord.findById(req.params.id);
+  const record = await Record.findById(req.params.id);
   res.set("Access-Control-Allow-Origin", "*");
   if (!record) {
     res.status(400);

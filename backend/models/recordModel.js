@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const collectedRecordSchema = mongoose.Schema(
+const recordSchema = mongoose.Schema(
   {
     album_type: {
       type: String,
@@ -22,10 +22,12 @@ const collectedRecordSchema = mongoose.Schema(
     total_tracks: Number,
     type: String,
     uri: String,
+    collectedUsers: [],
+    wishlistUsers: [],
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model("collectedrecord", collectedRecordSchema);
+module.exports = mongoose.model("record", recordSchema);
