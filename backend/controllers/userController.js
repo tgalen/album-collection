@@ -54,6 +54,7 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user.id,
       userName: user.userName,
       email: user.email,
+      token: generateToken(user._id),
     });
   } else {
     res.status(400);
@@ -68,13 +69,31 @@ const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
+
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.json({
+      _id: user.id,
+      userName: user.userName,
+      email: user.email,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid credentials");
+  }
 });
 
 //@desc Get user data
 //route GET /api/users/me
 //@access Public
 const getMe = asyncHandler(async (req, res) => {
-  res.json({ message: "Display user data" });
+  const { _id, userName, email } = await User.findById(req.user.id);
+
+  res.status(200).json({
+    id: _id,
+    userName,
+    email,
+  });
 });
 
 //@desc update user
@@ -99,6 +118,11 @@ const deleteUser = asyncHandler(async (req, res) => {
 
   res.status(200).json({ message: `Delete user ${req.params.id}` });
 });
+
+// generate JWT
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "10d" });
+};
 
 module.exports = {
   getUsers,
