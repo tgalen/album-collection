@@ -22,8 +22,12 @@ const recordSchema = mongoose.Schema(
     total_tracks: Number,
     type: String,
     uri: String,
-    collectedUsers: [],
-    wishlistUsers: [],
+    collectedUsers: [
+      // { type: mongoose.Schema.Types.ObjectId, ref: "user", unique: true },
+    ],
+    wishlistedUsers: [
+      // { type: mongoose.Schema.Types.ObjectId, ref: "user", unique: true },
+    ],
   },
   {
     timestamps: true,

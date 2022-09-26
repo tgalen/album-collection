@@ -4,14 +4,18 @@ const {
   getRecordCollection,
   addRecordToCollection,
   deleteRecordFromCollection,
-} = require("../controllers/collectionController");
+  checkForAndUpdateOrAddRecord,
+} = require("../controllers/recordController");
 
 router.route("/").get(getRecordCollection).post(addRecordToCollection);
 
 // router.put("/:id", (req, res) => {
 //   res.status(200).json({ message: `Update album ${req.params.id}` });
 // });
+router.route("/:id").delete(deleteRecordFromCollection);
 
-router.delete("/:id", deleteRecordFromCollection);
+router.route("/:name").put(checkForAndUpdateOrAddRecord);
+
+// router.delete("/:id", deleteRecordFromCollection);
 
 module.exports = router;
