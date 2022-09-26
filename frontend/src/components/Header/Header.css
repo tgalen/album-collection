@@ -13,6 +13,23 @@
   height: 50px;
 }
 
+.login-container {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  display: inline;
+  text-decoration: none;
+  width: 20%;
+}
+
+.login-container li {
+  display: inline;
+  margin: 5%;
+}
+.login-container li a {
+  color: white;
+}
+
 .nav-container {
   position: absolute;
   left: 2%;
