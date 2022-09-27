@@ -15,8 +15,9 @@ const getRecordCollection = asyncHandler(async (req, res) => {
   res.status(200).json(records);
 });
 
+//description: update record or create record if it does not exist
+//@ route PUT /api/records
 const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
-  // const existingRecord = await Record.find({ name: req.body.name, spotify_id : req.body.spotify_id });
   const query = { name: req.body.name, spotify_id: req.body.spotify_id };
   const newRecord = {
     album_type: req.body.album_type,
