@@ -83,7 +83,7 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-//@desc Get user data
+//@desc Get user _id from token
 //route GET /api/users/me
 //@access Private
 const getMe = asyncHandler(async (req, res) => {
