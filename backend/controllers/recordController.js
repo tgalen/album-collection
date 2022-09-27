@@ -50,8 +50,15 @@ const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
   //     new: true,
   //   }
   // );
+  if (updatedOrNewRecord.upsertedCount === 1) {
+    res.status(201).json({ message: "New Record added" });
+  }
 
-  res.status(201).json(updatedOrNewRecord);
+  if (updatedOrNewRecord.modifiedCount === 1) {
+    res.status(200).json({ message: "Record updated" });
+  }
+
+  // res.status(201).json(updatedOrNewRecord);
 });
 
 // description: PUT record to records collection or create if it does not exist
