@@ -7,16 +7,18 @@ const {
   checkForAndUpdateOrAddRecord,
 } = require("../controllers/recordController");
 
+const { protect } = require("../middleware/authMiddleware");
+
 router
   .route("/")
-  .get(getRecordCollection)
-  .post(addRecordToCollection)
-  .put(checkForAndUpdateOrAddRecord);
+  .post(protect, addRecordToCollection)
+  .put(protect, checkForAndUpdateOrAddRecord)
+  .get(getRecordCollection);
 
 // router.put("/:id", (req, res) => {
 //   res.status(200).json({ message: `Update album ${req.params.id}` });
 // });
-router.route("/:id").delete(deleteRecordFromCollection);
+router.route("/:id").delete(protect, deleteRecordFromCollection);
 
 // router.delete("/:id", deleteRecordFromCollection);
 

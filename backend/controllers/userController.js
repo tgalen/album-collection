@@ -85,7 +85,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 //@desc Get user data
 //route GET /api/users/me
-//@access Public
+//@access Private
 const getMe = asyncHandler(async (req, res) => {
   const { _id, userName, email } = await User.findById(req.user.id);
 
@@ -100,7 +100,16 @@ const getMe = asyncHandler(async (req, res) => {
 //route PUT /api/users:id
 //@access Private
 const updateUser = asyncHandler(async (req, res) => {
-  res.status(200).json({ messgae: "Update user" });
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    res.status(400);
+    throw new Error("User not found");
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body);
+
+  res.status(200).json(updatedUser);
 });
 
 //@desc delete user

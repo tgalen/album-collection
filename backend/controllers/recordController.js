@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const Record = require("../models/recordModel");
+const User = require("../models/userModel");
 const { findOne, findOneAndUpdate } = require("../models/recordModel");
 const { faSave } = require("@fortawesome/free-solid-svg-icons");
 
@@ -10,9 +11,11 @@ const { faSave } = require("@fortawesome/free-solid-svg-icons");
 //@ route GET /api/records
 // https://www.mongodb.com/docs/manual/reference/operator/query/elemMatch/
 const getRecordCollection = asyncHandler(async (req, res) => {
-  const records = await Record.find();
+  const { _id, userName, email } = await User.findById(req.user.id);
+  console.log(_id);
+  // const records = await Record.find({ collectedUsers: _id }); // need to reference collectedUser
 
-  res.status(200).json(records);
+  res.status(200).json(`userName ${userName}, ID: ${_id}`);
 });
 
 //description: update record or create record if it does not exist
