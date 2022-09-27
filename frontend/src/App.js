@@ -6,6 +6,7 @@ import SearchSpotify from "./components/SearchSpotify/SearchSpotify";
 import ArtistsAlbums from "./components/ArtistsAlbums/ArtistsAlbums";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
+import Dashboard from "./components/Dashboard/Dashboard";
 import "./App.css";
 // const artistCardStyle = {
 //   height: "400px",
@@ -42,7 +43,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Collection collection={collection} />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route
