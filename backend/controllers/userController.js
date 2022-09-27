@@ -101,13 +101,23 @@ const getMe = asyncHandler(async (req, res) => {
 //@access Private
 const updateUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
+  const { userName, email, password } = req.body;
+
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
 
   if (!user) {
     res.status(400);
     throw new Error("User not found");
   }
 
-  const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body);
+  const updatedUser = await User.findByIdAndUpdate(
+    req.params.id,
+    { userName: userName, email: email, password: hashedPassword },
+    {
+      new: true,
+    }
+  );
 
   res.status(200).json(updatedUser);
 });
