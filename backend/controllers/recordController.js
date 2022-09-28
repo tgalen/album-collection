@@ -24,6 +24,7 @@ const getRecordCollection = asyncHandler(async (req, res) => {
 //@ route PUT /api/records
 const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
   const query = { name: req.body.name, spotify_id: req.body.spotify_id };
+
   const newRecord = {
     album_type: req.body.album_type,
     artist: req.body.artists,
@@ -37,12 +38,18 @@ const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
     type: req.body.type,
     uri: req.body.uri,
     // collectedUsers: req.body.collectedUsers,
-    wishlistedUsers: req.body.wishlistedUsers,
+    // wishedOrCollectedKey: wishedOrCollectedValue,
+    // wishlistedUsers: req.body.wishlistedUsers,
   };
+
+  const updateParameters = req.body.collectedUsers // check if PUT is for collected or wishlisted user
+    ? { collectedUsers: req.body.collectedUsers }
+    : { wishlistedUsers: req.body.wishlistedUsers };
+  console.log(update);
   const updatedOrNewRecord = await Record.updateOne(
     query,
     {
-      $push: { collectedUsers: req.body.collectedUsers },
+      $push: { ...updateParameters },
       $setOnInsert: newRecord,
     },
     { upsert: true }
