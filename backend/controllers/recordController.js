@@ -15,7 +15,7 @@ const getRecordCollection = asyncHandler(async (req, res) => {
   const { _id, userName } = user[0];
   console.log(_id);
   console.log(userName);
-  const records = await Record.find({ collectedUsers: userName }); // need to reference collectedUser
+  const records = await Record.find({ collectedUsers: _id }); // need to reference collectedUser
 
   res.status(200).json(records);
 });
