@@ -3,7 +3,6 @@ const router = express.Router();
 const {
   getRecordCollection,
   addRecordToCollection,
-  deleteRecordFromCollection,
   checkForAndUpdateOrAddRecord,
   checkForAndUpdateOrDeleteRecordIfNoCollectedOrWishlistedUsers,
 } = require("../controllers/recordController");
@@ -22,7 +21,5 @@ router
 router
   .route("/:id")
   .put(protect, checkForAndUpdateOrDeleteRecordIfNoCollectedOrWishlistedUsers);
-
-// router.delete("/:id", deleteRecordFromCollection);
 
 module.exports = router;

@@ -37,9 +37,6 @@ const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
     total_tracks: req.body.total_tracks,
     type: req.body.type,
     uri: req.body.uri,
-    // collectedUsers: req.body.collectedUsers,
-    // wishedOrCollectedKey: wishedOrCollectedValue,
-    // wishlistedUsers: req.body.wishlistedUsers,
   };
 
   const updateParameters = req.body.collectedUsers // check if PUT is for collected or wishlisted user
@@ -54,14 +51,6 @@ const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
     { upsert: true }
   );
 
-  // const recordToUpdate = await Record.findOneAndUpdate(
-  //   { name: req.body.name },
-  //   { $push: { collectedUsers: req.body.collectedUsers } },
-  //   {
-  //     upsert: true,
-  //     new: true,
-  //   }
-  // );
   if (updatedOrNewRecord.upsertedCount === 1) {
     res.status(201).json({ message: "New Record added" });
   }
@@ -69,54 +58,6 @@ const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
   if (updatedOrNewRecord.modifiedCount === 1) {
     res.status(200).json({ message: "Record updated" });
   }
-
-  // res.status(201).json(updatedOrNewRecord);
-});
-
-// description: PUT record to records collection or create if it does not exist
-//@route PUT /api/records
-// const addRecordToCollection = asyncHandler(async (req, res) => {
-//   if (!req.body.album_type && !req.body.spotify_id && req.body.name) {
-//     res.status(400);
-//     throw new Error("Please verify album_type, id, name fields.");
-//   }
-
-//   const record = await Record.create({
-//     album_type: req.body.album_type,
-//     spotify_id: req.body.spotify_id,
-//     name: req.body.name,
-//     href: req.body.href,
-//     release_date: req.body.release_date,
-//     total_tracks: req.body.total_tracks,
-//     type: req.body.type,
-//     uri: req.body.uri,
-//     artists: req.body.artists,
-//     images: req.body.images,
-//     collectedUsers: req.body.collectedUser, // test
-//   });
-//   res.status(200).json(record);
-
-//   // const reqArtistsList = req.body.artists.map((artist) => {
-//   //   return artist;
-//   // });
-//   // const reqImagesList = req.body.images.map((image) => {
-//   //   return image;
-//   // });
-// });
-
-//decription: DELETE record from collection
-//@route DELETE /api/vinylcollection/:id
-const deleteRecordFromCollection = asyncHandler(async (req, res) => {
-  const record = await Record.findById(req.params.id);
-  res.set("Access-Control-Allow-Origin", "*");
-  if (!record) {
-    res.status(400);
-    throw new Error("Record not found");
-  }
-
-  await record.remove();
-
-  res.status(200).json({ message: `Delete album ${req.params.id}` });
 });
 
 const checkForAndUpdateOrDeleteRecordIfNoCollectedOrWishlistedUsers =
@@ -144,8 +85,6 @@ const checkForAndUpdateOrDeleteRecordIfNoCollectedOrWishlistedUsers =
 
 module.exports = {
   getRecordCollection,
-  // addRecordToCollection,
-  deleteRecordFromCollection,
   checkForAndUpdateOrAddRecord,
   checkForAndUpdateOrDeleteRecordIfNoCollectedOrWishlistedUsers,
 };
