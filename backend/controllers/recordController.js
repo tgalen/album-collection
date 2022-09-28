@@ -43,9 +43,8 @@ const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
   };
 
   const updateParameters = req.body.collectedUsers // check if PUT is for collected or wishlisted user
-    ? { collectedUsers: req.body.collectedUsers }
-    : { wishlistedUsers: req.body.wishlistedUsers };
-  console.log(update);
+    ? { collectedUsers: req.user.id }
+    : { wishlistedUsers: req.user.id };
   const updatedOrNewRecord = await Record.updateOne(
     query,
     {
