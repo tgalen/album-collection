@@ -11,11 +11,13 @@ const { faSave } = require("@fortawesome/free-solid-svg-icons");
 //@ route GET /api/records
 // https://www.mongodb.com/docs/manual/reference/operator/query/elemMatch/
 const getRecordCollection = asyncHandler(async (req, res) => {
-  const { _id, userName, email } = await User.findById(req.user.id);
+  const user = await User.find({ userName: req.body.userName });
+  const { _id, userName } = user[0];
   console.log(_id);
-  // const records = await Record.find({ collectedUsers: _id }); // need to reference collectedUser
+  console.log(userName);
+  const records = await Record.find({ collectedUsers: userName }); // need to reference collectedUser
 
-  res.status(200).json(`userName ${userName}, ID: ${_id}`);
+  res.status(200).json(records);
 });
 
 //description: update record or create record if it does not exist

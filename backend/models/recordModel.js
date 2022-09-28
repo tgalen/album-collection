@@ -23,10 +23,10 @@ const recordSchema = mongoose.Schema(
     type: String,
     uri: String,
     collectedUsers: [
-      { type: mongoose.Schema.Types.ObjectId, ref: "user", unique: true },
+      // { type: mongoose.Schema.Types.ObjectId, ref: "user", unique: true },
     ],
     wishlistedUsers: [
-      { type: mongoose.Schema.Types.ObjectId, ref: "user", unique: true },
+      // { type: mongoose.Schema.Types.ObjectId, ref: "user", unique: true },
     ],
   },
   {
