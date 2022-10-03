@@ -60,10 +60,18 @@ const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
   }
 });
 
+//description: update record or delete record if collectedUsers and WishlistedUsers do not exist
+//@ route PUT /api/records/:id
 const checkForAndUpdateOrDeleteRecord = asyncHandler(async (req, res) => {
+  console.log("checkforAndUpdateOrDeleteRecord");
+  console.log(req.user.id);
+
   const updateParameters = req.body.collectedUsers // check if PUT is for collected or wishlisted user
     ? { collectedUsers: req.user.id }
     : { wishlistedUsers: req.user.id };
+  console.log(updateParameters);
+
+  console.log(req.params.id);
 
   const updatedRecord = await Record.findOneAndUpdate(
     { _id: req.params.id },
@@ -71,12 +79,17 @@ const checkForAndUpdateOrDeleteRecord = asyncHandler(async (req, res) => {
     { new: true }
   );
 
-  if (
+  console.log(updatedRecord);
+  if (!updatedRecord) {
+    res.status(400).json({ message: "Record not found" });
+  } else if (
     updatedRecord.collectedUsers.length === 0 &&
     updatedRecord.wishlistedUsers.length === 0
   ) {
     await updatedRecord.remove();
-    res.status(200).json({ message: "User and Record deleted" });
+    res
+      .status(200)
+      .json({ message: "User removed from Record and Record deleted" });
   } else {
     res.status(200).json({ message: "User deleted from record" });
   }
