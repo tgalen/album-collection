@@ -4,7 +4,7 @@ const {
   getRecordCollection,
   addRecordToCollection,
   checkForAndUpdateOrAddRecord,
-  checkForAndUpdateOrDeleteRecordIfNoCollectedOrWishlistedUsers,
+  checkForAndUpdateOrDeleteRecord,
 } = require("../controllers/recordController");
 
 const { protect } = require("../middleware/authMiddleware");
@@ -18,8 +18,6 @@ router
 // router.put("/:id", (req, res) => {
 //   res.status(200).json({ message: `Update album ${req.params.id}` });
 // });
-router
-  .route("/:id")
-  .put(protect, checkForAndUpdateOrDeleteRecordIfNoCollectedOrWishlistedUsers);
+router.route("/:id").put(protect, checkForAndUpdateOrDeleteRecord);
 
 module.exports = router;

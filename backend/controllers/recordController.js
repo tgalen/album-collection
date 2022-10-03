@@ -60,31 +60,30 @@ const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
   }
 });
 
-const checkForAndUpdateOrDeleteRecordIfNoCollectedOrWishlistedUsers =
-  asyncHandler(async (req, res) => {
-    const updateParameters = req.body.collectedUsers // check if PUT is for collected or wishlisted user
-      ? { collectedUsers: req.user.id }
-      : { wishlistedUsers: req.user.id };
+const checkForAndUpdateOrDeleteRecord = asyncHandler(async (req, res) => {
+  const updateParameters = req.body.collectedUsers // check if PUT is for collected or wishlisted user
+    ? { collectedUsers: req.user.id }
+    : { wishlistedUsers: req.user.id };
 
-    const updatedRecord = await Record.findOneAndUpdate(
-      { _id: req.params.id },
-      { $pull: { ...updateParameters } },
-      { new: true }
-    );
+  const updatedRecord = await Record.findOneAndUpdate(
+    { _id: req.params.id },
+    { $pull: { ...updateParameters } },
+    { new: true }
+  );
 
-    if (
-      updatedRecord.collectedUsers.length === 0 &&
-      updatedRecord.wishlistedUsers.length === 0
-    ) {
-      await updatedRecord.remove();
-      res.status(200).json({ message: "User and Record deleted" });
-    } else {
-      res.status(200).json({ message: "User deleted from record" });
-    }
-  });
+  if (
+    updatedRecord.collectedUsers.length === 0 &&
+    updatedRecord.wishlistedUsers.length === 0
+  ) {
+    await updatedRecord.remove();
+    res.status(200).json({ message: "User and Record deleted" });
+  } else {
+    res.status(200).json({ message: "User deleted from record" });
+  }
+});
 
 module.exports = {
   getRecordCollection,
   checkForAndUpdateOrAddRecord,
-  checkForAndUpdateOrDeleteRecordIfNoCollectedOrWishlistedUsers,
+  checkForAndUpdateOrDeleteRecord,
 };
