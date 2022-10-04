@@ -8,6 +8,7 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
 import "./App.css";
+
 // const artistCardStyle = {
 //   height: "400px",
 //   width: " 400px",
