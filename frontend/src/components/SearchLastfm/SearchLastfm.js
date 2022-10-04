@@ -5,10 +5,10 @@ const SearchLastfm = () => {
   const [searchResults, setSeachResults] = useState(null);
   const SEARCH_ENDPOINT =
     "http://ws.audioscrobbler.com/2.0/?method=album.search&album=";
-  const API_KEY = process.env.REACT_APP_LASTFM_API_KEY;
+
   const handleSearch = () => {
     fetch(
-      `${SEARCH_ENDPOINT}${searchTerm}&api_key=${process.env.REACT_APP_LASTFM_API_KEY}&format=json`
+      `${SEARCH_ENDPOINT}${searchTerm}&api_key=${process.env.REACT_APP_LASTFM_API_KEY}&format=json&limit=20`
     )
       .then((response) => {
         if (response.ok) {
@@ -37,9 +37,11 @@ const SearchLastfm = () => {
       <button onClick={handleSearch}>Search</button>
       {searchResults &&
         searchResults.map((album) => {
+          let targetKey = Object.keys(album.image[0])[0];
           return (
             <div>
               <h3>{album.name}</h3>
+              <img src={album.image[2][targetKey]} />
             </div>
           );
         })}
