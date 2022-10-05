@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import Header from "./components/Header/Header";
+import Landing from "./components/Landing/Landing";
 import Collection from "./components/Collection/Collection";
 import SearchSpotify from "./components/SearchSpotify/SearchSpotify";
 import ArtistsAlbums from "./components/ArtistsAlbums/ArtistsAlbums";
@@ -46,7 +47,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route
@@ -65,7 +67,7 @@ function App() {
           <Route path="/searchrecordstoadd" element={<SearchLastfm />} />
         </Routes>
       </BrowserRouter>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </div>
   );
 }
