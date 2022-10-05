@@ -22,6 +22,7 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
   };
+
   return (
     <div className="form-container">
       <section className="heading">
