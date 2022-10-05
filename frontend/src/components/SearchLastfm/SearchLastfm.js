@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SearchLastfm.css";
 
 const SearchLastfm = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -41,7 +42,7 @@ const SearchLastfm = () => {
           return (
             <div>
               <h3>{album.name}</h3>
-              <img src={album.image[2][targetKey]} />
+              <img src={album.image[3][targetKey]} alt={album.name} />
             </div>
           );
         })}
