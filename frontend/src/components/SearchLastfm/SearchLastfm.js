@@ -43,6 +43,8 @@ const SearchLastfm = () => {
             <div>
               <h3>{album.name}</h3>
               <img src={album.image[3][targetKey]} alt={album.name} />
+              <button>Add to Collection</button>
+              <button>Add to Wishlist</button>
             </div>
           );
         })}

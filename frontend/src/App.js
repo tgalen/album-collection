@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Collection from "./components/Collection/Collection";
@@ -61,9 +61,9 @@ function App() {
               />
             }
           />
+          <Route path="/searchrecordstoadd" element={<SearchLastfm />} />
         </Routes>
       </BrowserRouter>
-      <SearchLastfm />
     </div>
   );
 }
