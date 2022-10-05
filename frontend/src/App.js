@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 import Header from "./components/Header/Header";
 import Collection from "./components/Collection/Collection";
 import SearchSpotify from "./components/SearchSpotify/SearchSpotify";
@@ -64,6 +65,7 @@ function App() {
           <Route path="/searchrecordstoadd" element={<SearchLastfm />} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </div>
   );
 }
