@@ -23,20 +23,13 @@ const getRecordCollection = asyncHandler(async (req, res) => {
 //description: update record or create record if it does not exist
 //@ route PUT /api/records
 const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
-  const query = { name: req.body.name, spotify_id: req.body.spotify_id };
+  const query = { name: req.body.name, artist: req.artist };
 
   const newRecord = {
-    album_type: req.body.album_type,
-    artist: req.body.artists,
-    spotify_url: req.body.spotify_url,
-    href: req.body.href,
-    spotify_id: req.body.spotify_id,
+    artist: req.body.artist,
     images: req.body.images,
     name: req.body.name,
-    release_date: req.body.release_date,
-    total_tracks: req.body.total_tracks,
-    type: req.body.type,
-    uri: req.body.uri,
+    url: req.body.url,
   };
 
   const updateParameters = req.body.collectedUsers // check if PUT is for collected or wishlisted user
