@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const recordSchema = mongoose.Schema(
   {
     artist: String,
-    images: [],
+    images: Object,
     name: {
       type: String,
       required: [true, "Please add a name field"],
