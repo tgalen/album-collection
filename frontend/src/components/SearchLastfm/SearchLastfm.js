@@ -39,10 +39,16 @@ const SearchLastfm = () => {
       {searchResults &&
         searchResults.map((album) => {
           let targetKey = Object.keys(album.image[0])[0];
+          const images = {
+            small: album.image[0][targetKey],
+            medium: album.image[1][targetKey],
+            large: album.image[2][targetKey],
+            extralarge: album.image[3][targetKey],
+          };
           return (
             <div>
               <h3>{album.name}</h3>
-              <img src={album.image[3][targetKey]} alt={album.name} />
+              <img src={images.extralarge} alt={album.name} />
               <button>Add to Collection</button>
               <button>Add to Wishlist</button>
             </div>
