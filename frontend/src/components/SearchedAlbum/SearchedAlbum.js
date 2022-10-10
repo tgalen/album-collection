@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 const albumCardStyle = {
   height: "400px",
   width: "310px",
@@ -6,31 +8,19 @@ const albumCardStyle = {
   boxSizing: "border-box",
 };
 
-const SearchedAlbum = ({ info }) => {
-  const artistList = info.artists.map((artist) => {
-    return artist;
-  });
-
-  const imageList = info.images.map((image) => {
-    return image;
-  });
+const SearchedAlbum = ({ info, images }) => {
+  const { user } = useSelector((state) => state.auth);
 
   const postBodyModel = {
-    album_type: info.album_type,
-    artists: artistList,
-    spotify_url: info.external_urls.spoitfy, // external_urls.spotify
-    href: info.href,
-    spotify_id: info.id,
-    images: imageList,
+    artist: info.artist,
+    images: images,
     name: info.name,
-    release_date: info.release_date,
-    total_tracks: info.total_tracks,
-    type: info.type,
-    uri: info.uri,
+    url: info.url,
+    collectedUsers: user._id,
   };
 
   const postOptions = {
-    method: "POST",
+    method: "PUT",
     body: JSON.stringify(postBodyModel),
     headers: {
       "Content-Type": "application/json",
@@ -38,7 +28,7 @@ const SearchedAlbum = ({ info }) => {
   };
 
   const handleAddRecordToCollection = () => {
-    fetch("http://localhost:5000/api/vinylcollection", postOptions)
+    fetch("http://localhost:5000/api/records", postOptions)
       .then((response) => {
         console.log(response);
         console.log(postOptions.body);
@@ -48,11 +38,11 @@ const SearchedAlbum = ({ info }) => {
   };
 
   return (
-    <div key={info.id} style={albumCardStyle}>
+    <div style={albumCardStyle}>
       <h3>{info.name}</h3>
-      <h5>Artist: {info.artists[0].name}</h5>
+      <h5>Artist: {info.artist}</h5>
       <button onClick={() => handleAddRecordToCollection()}>Add</button>
-      <img alt={info.name} src={info.images[1].url} />
+      <img alt={info.name} src={images.extraLarge} />
     </div>
   );
 };

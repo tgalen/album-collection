@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SearchedAlbum from "../SearchedAlbum/SearchedAlbum";
 import "./SearchLastfm.css";
 
 const SearchLastfm = () => {
@@ -37,22 +38,15 @@ const SearchLastfm = () => {
       ></input>
       <button onClick={handleSearch}>Search</button>
       {searchResults &&
-        searchResults.map((album) => {
+        searchResults.map((album, index) => {
           let targetKey = Object.keys(album.image[0])[0];
           const images = {
             small: album.image[0][targetKey],
             medium: album.image[1][targetKey],
             large: album.image[2][targetKey],
-            extralarge: album.image[3][targetKey],
+            extraLarge: album.image[3][targetKey],
           };
-          return (
-            <div>
-              <h3>{album.name}</h3>
-              <img src={images.extralarge} alt={album.name} />
-              <button>Add to Collection</button>
-              <button>Add to Wishlist</button>
-            </div>
-          );
+          return <SearchedAlbum key={index} info={album} images={images} />;
         })}
     </div>
   );
