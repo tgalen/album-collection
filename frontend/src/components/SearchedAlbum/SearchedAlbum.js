@@ -22,22 +22,7 @@ const SearchedAlbum = ({ info, images }) => {
     collectedUsers: user._id,
   };
 
-  const postOptions = {
-    method: "PUT",
-    body: JSON.stringify(postBodyModel),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-
   const handleAddRecordToCollection = () => {
-    // fetch("http://localhost:5000/api/records", postOptions)
-    //   .then((response) => {
-    //     console.log(response);
-    //     console.log(postOptions.body);
-    //     return response;
-    //   })
-    //   .catch((err) => console.log(err));
     dispatch(addRecordToCollection(postBodyModel));
   };
 
