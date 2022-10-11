@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addRecordToCollection } from "../../features/records/recordSlice";
 
 const albumCardStyle = {
   height: "400px",
@@ -10,6 +11,8 @@ const albumCardStyle = {
 
 const SearchedAlbum = ({ info, images }) => {
   const { user } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
 
   const postBodyModel = {
     artist: info.artist,
@@ -28,13 +31,14 @@ const SearchedAlbum = ({ info, images }) => {
   };
 
   const handleAddRecordToCollection = () => {
-    fetch("http://localhost:5000/api/records", postOptions)
-      .then((response) => {
-        console.log(response);
-        console.log(postOptions.body);
-        return response;
-      })
-      .catch((err) => console.log(err));
+    // fetch("http://localhost:5000/api/records", postOptions)
+    //   .then((response) => {
+    //     console.log(response);
+    //     console.log(postOptions.body);
+    //     return response;
+    //   })
+    //   .catch((err) => console.log(err));
+    dispatch(addRecordToCollection(postBodyModel));
   };
 
   return (
