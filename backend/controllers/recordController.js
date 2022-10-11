@@ -45,11 +45,11 @@ const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
   );
 
   if (updatedOrNewRecord.upsertedCount === 1) {
-    res.status(201).json({ message: "New Record added" });
+    res.status(201).json(updatedOrNewRecord);
   }
 
   if (updatedOrNewRecord.modifiedCount === 1) {
-    res.status(200).json({ message: "Record updated" });
+    res.status(200).json(updatedOrNewRecord);
   }
 });
 
