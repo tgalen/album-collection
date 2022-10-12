@@ -12,6 +12,7 @@ import Login from "./components/Login/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SearchLastfm from "./components/SearchLastfm/SearchLastfm";
 import UserProfile from "./components/UserProfile/UserProfile";
+import SearchUsers from "./components/SearchUsers/SearchUsers";
 import "./App.css";
 import Users from "./components/Users/Users";
 
@@ -32,10 +33,8 @@ function App() {
   useEffect(() => {
     const getUsers = async () => {
       const response = await axios.get(USERS_API);
-      console.log(response.data);
-      console.log(response.data.length);
-      console.log(typeof response.data);
-      //   const response = await usersData.json();
+      console.log(`${response.data.length} registered users.`);
+
       setUsers(response.data);
     };
     getUsers();
@@ -73,6 +72,7 @@ function App() {
           />
           <Route path="users/:id" element={<UserProfile users={users} />} />
           <Route path="/searchrecordstoadd" element={<SearchLastfm />} />
+          <Route path="/searchusers" element={<SearchUsers users={users} />} />
         </Routes>
         {/* <Users users={users} /> */}
       </BrowserRouter>

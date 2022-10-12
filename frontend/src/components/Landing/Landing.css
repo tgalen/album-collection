@@ -1,4 +1,9 @@
-.landing {
+.landing-container {
   background-color: aqua;
   height: 100vh;
+  display: flex;
+}
+
+.content {
+  margin: auto;
 }
