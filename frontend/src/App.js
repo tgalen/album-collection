@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
+import axios from "axios";
 import Header from "./components/Header/Header";
 import Landing from "./components/Landing/Landing";
 import Collection from "./components/Collection/Collection";
@@ -10,6 +11,7 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SearchLastfm from "./components/SearchLastfm/SearchLastfm";
+import UserProfile from "./components/UserProfile/UserProfile";
 import "./App.css";
 import Users from "./components/Users/Users";
 
@@ -24,7 +26,20 @@ import Users from "./components/Users/Users";
 
 function App() {
   const [collection, setCollection] = useState(null);
+  const [users, setUsers] = useState(null);
+  const USERS_API = "http://localhost:5000/api/users/";
 
+  useEffect(() => {
+    const getUsers = async () => {
+      const response = await axios.get(USERS_API);
+      console.log(response.data);
+      console.log(response.data.length);
+      console.log(typeof response.data);
+      //   const response = await usersData.json();
+      setUsers(response.data);
+    };
+    getUsers();
+  }, []);
   // const fetchRecordColelction = () => {
   //   fetch("http://localhost:5000/api/vinylcollection")
   //     .then((response) => {
@@ -56,18 +71,10 @@ function App() {
             path="/:id"
             element={<ArtistsAlbums collection={collection} />}
           />
-          <Route
-            path="/searchspotify"
-            element={
-              <SearchSpotify
-                collection={collection}
-                setCollection={setCollection}
-              />
-            }
-          />
+          <Route path="users/:id" element={<UserProfile users={users} />} />
           <Route path="/searchrecordstoadd" element={<SearchLastfm />} />
         </Routes>
-        <Users />
+        {/* <Users users={users} /> */}
       </BrowserRouter>
       {/* <ToastContainer /> */}
     </div>

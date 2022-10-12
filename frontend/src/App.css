@@ -1,4 +1,5 @@
 .main-app {
-  background-color: #323031;
+  background-color: white;
   min-height: 100vh;
+  max-height: 100vh;
 }

@@ -1,7 +1,12 @@
 #header {
-  padding: 2%;
-  position: relative;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  position: absolute;
+  top: 0;
+  min-width: 100vw;
   background-color: #323031;
+  /* min-height: 8vh; */
+  max-height: 5vh;
 }
 
 .logo-container {
@@ -15,7 +20,7 @@
 
 .login-container {
   position: absolute;
-  right: 0;
+  right: 1%;
   top: 30%;
   display: inline;
   text-decoration: none;

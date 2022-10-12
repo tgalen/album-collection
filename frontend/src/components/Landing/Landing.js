@@ -1,5 +1,6 @@
+import "./Landing.css";
 const Landing = () => {
-  return <div>Landing Page</div>;
+  return <div className="landing">Welcome to RecordKeepr</div>;
 };
 
 export default Landing;
