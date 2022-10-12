@@ -23,7 +23,7 @@ const getRecordCollection = asyncHandler(async (req, res) => {
 //description: update record or create record if it does not exist
 //@ route PUT /api/records
 const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
-  const query = { name: req.body.name, artist: req.artist };
+  const query = { name: req.body.name, artist: req.body.artist };
 
   const newRecord = {
     artist: req.body.artist,
