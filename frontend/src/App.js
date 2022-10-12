@@ -11,6 +11,7 @@ import Login from "./components/Login/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SearchLastfm from "./components/SearchLastfm/SearchLastfm";
 import "./App.css";
+import Users from "./components/Users/Users";
 
 // const artistCardStyle = {
 //   height: "400px",
@@ -66,6 +67,7 @@ function App() {
           />
           <Route path="/searchrecordstoadd" element={<SearchLastfm />} />
         </Routes>
+        <Users />
       </BrowserRouter>
       {/* <ToastContainer /> */}
     </div>
