@@ -30,13 +30,11 @@ function App() {
   const [users, setUsers] = useState(null);
   const USERS_API = "http://localhost:5000/api/users/";
 
+  const getUsers = async () => {
+    const response = await axios.get(USERS_API);
+    setUsers(response.data);
+  };
   useEffect(() => {
-    const getUsers = async () => {
-      const response = await axios.get(USERS_API);
-      console.log(`${response.data.length} registered users.`);
-
-      setUsers(response.data);
-    };
     getUsers();
   }, []);
   // const fetchRecordColelction = () => {
