@@ -4,7 +4,7 @@ const SearchUSers = ({ users, userSearchInput, setUserSearchInput }) => {
   const handleUserSearchInput = (e) => {
     setUserSearchInput(e.target.value);
   };
-  console.log(users);
+
   const filteredUsersBySearchInput =
     users &&
     users.filter((user) => {
@@ -12,7 +12,6 @@ const SearchUSers = ({ users, userSearchInput, setUserSearchInput }) => {
         .toLowerCase()
         .includes(userSearchInput.toLowerCase());
     });
-  console.log(filteredUsersBySearchInput);
 
   return (
     <div className="search-users-container">
