@@ -28,6 +28,7 @@ import Users from "./components/Users/Users";
 function App() {
   const [collection, setCollection] = useState(null);
   const [users, setUsers] = useState(null);
+  const [userSearchInput, setUserSearchInput] = useState("");
   const USERS_API = "http://localhost:5000/api/users/";
 
   const getUsers = async () => {
@@ -70,7 +71,16 @@ function App() {
           />
           <Route path="users/:id" element={<UserProfile users={users} />} />
           <Route path="/searchrecordstoadd" element={<SearchLastfm />} />
-          <Route path="/searchusers" element={<SearchUsers users={users} />} />
+          <Route
+            path="/searchusers"
+            element={
+              <SearchUsers
+                users={users}
+                userSearchInput={userSearchInput}
+                setUserSearchInput={setUserSearchInput}
+              />
+            }
+          />
         </Routes>
         {/* <Users users={users} /> */}
       </BrowserRouter>
