@@ -70,7 +70,7 @@ function App() {
             path="/:id"
             element={<ArtistsAlbums collection={collection} />}
           />
-          <Route path="users/:id" element={<UserProfile users={users} />} />
+          {/* <Route path="users/:id" element={<UserProfile users={users} />} /> */}
           <Route path="/searchrecordstoadd" element={<SearchLastfm />} />
           <Route
             path="/searchusers"

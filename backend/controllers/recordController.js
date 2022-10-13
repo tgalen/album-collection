@@ -11,13 +11,26 @@ const { faSave } = require("@fortawesome/free-solid-svg-icons");
 //@ route GET /api/records
 // https://www.mongodb.com/docs/manual/reference/operator/query/elemMatch/
 const getRecordCollection = asyncHandler(async (req, res) => {
+  console.log(req.body);
   const user = await User.find({ userName: req.body.userName });
+  console.log(user);
   const { _id, userName } = user[0];
   console.log(_id);
-  console.log(userName);
+  // console.log(userName);
   const records = await Record.find({ collectedUsers: _id }); // need to reference collectedUser
 
   res.status(200).json(records);
+});
+
+//description: GET record collection by :id (userName)
+//@route GET /api/records/collectedrecords/:id
+const getUserCollectedRecords = asyncHandler(async (req, res) => {
+  console.log(req.params);
+  const user = await User.find({ userName: req.params.id });
+  const { _id } = user[0];
+  console.log(_id);
+  const collectedRecords = await Record.find({ collectedUsers: _id });
+  res.status(200).json(collectedRecords);
 });
 
 //description: update record or create record if it does not exist
@@ -92,4 +105,5 @@ module.exports = {
   getRecordCollection,
   checkForAndUpdateOrAddRecord,
   checkForAndUpdateOrDeleteRecord,
+  getUserCollectedRecords,
 };

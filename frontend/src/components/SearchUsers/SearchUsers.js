@@ -1,3 +1,4 @@
+import UserProfile from "../UserProfile/UserProfile";
 import "./SearchUsers.css";
 
 const SearchUSers = ({
@@ -47,6 +48,7 @@ const SearchUSers = ({
               </button>
             );
           })}
+        {searchedUser && <UserProfile searchedUser={searchedUser} />}
       </div>
     </div>
   );
