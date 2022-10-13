@@ -29,6 +29,7 @@ function App() {
   const [collection, setCollection] = useState(null);
   const [users, setUsers] = useState(null);
   const [userSearchInput, setUserSearchInput] = useState("");
+  const [searchedUser, setSearchedUser] = useState(null);
   const USERS_API = "http://localhost:5000/api/users/";
 
   const getUsers = async () => {
@@ -78,6 +79,8 @@ function App() {
                 users={users}
                 userSearchInput={userSearchInput}
                 setUserSearchInput={setUserSearchInput}
+                searchedUser={searchedUser}
+                setSearchedUser={setSearchedUser}
               />
             }
           />
