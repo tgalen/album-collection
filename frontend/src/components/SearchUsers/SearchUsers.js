@@ -19,6 +19,10 @@ const SearchUSers = ({
         .includes(userSearchInput.toLowerCase().trim());
     });
 
+  const handleClearUserSearch = () => {
+    setSearchedUser(null);
+    setUserSearchInput("");
+  };
   const handleSelectUser = (user) => {
     setSearchedUser(user);
   };
@@ -33,6 +37,7 @@ const SearchUSers = ({
           onChange={handleUserSearchInput}
           value={userSearchInput}
         ></input>
+        <button onClick={handleClearUserSearch}>Clear Search</button>
 
         {userSearchInput !== "" &&
           filteredUsersBySearchInput.map((user) => {
