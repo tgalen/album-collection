@@ -33,6 +33,17 @@ const getUserCollectedRecords = asyncHandler(async (req, res) => {
   res.status(200).json(collectedRecords);
 });
 
+//description: GET wishlist records by :id (userName)
+//@route GET /api/records/wishlistededrecords/:id
+const getUserWishlistedRecords = asyncHandler(async (req, res) => {
+  console.log(req.params);
+  const user = await User.find({ userName: req.params.id });
+  const { _id } = user[0];
+  console.log(_id);
+  const wishlistedRecords = await Record.find({ wishlistedUsers: _id });
+  res.status(200).json(wishlistedRecords);
+});
+
 //description: update record or create record if it does not exist
 //@ route PUT /api/records
 const checkForAndUpdateOrAddRecord = asyncHandler(async (req, res) => {
@@ -106,4 +117,5 @@ module.exports = {
   checkForAndUpdateOrAddRecord,
   checkForAndUpdateOrDeleteRecord,
   getUserCollectedRecords,
+  getUserWishlistedRecords,
 };
