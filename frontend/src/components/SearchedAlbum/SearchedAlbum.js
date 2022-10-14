@@ -14,7 +14,7 @@ const SearchedAlbum = ({ info, images }) => {
 
   const dispatch = useDispatch();
 
-  const postBodyModel = {
+  const collectBodyModel = {
     artist: info.artist,
     images: images,
     name: info.name,
@@ -22,15 +22,28 @@ const SearchedAlbum = ({ info, images }) => {
     collectedUsers: user._id,
   };
 
+  const wishlistBodyModel = {
+    artist: info.artist,
+    images: images,
+    name: info.name,
+    url: info.url,
+    wishlistedUsers: user._id,
+  };
+
   const handleAddRecordToCollection = () => {
-    dispatch(addRecordToCollection(postBodyModel));
+    dispatch(addRecordToCollection(collectBodyModel));
+  };
+
+  const handleAddRecordToWishlist = () => {
+    dispatch(addRecordToCollection(wishlistBodyModel));
   };
 
   return (
     <div style={albumCardStyle}>
       <h3>{info.name}</h3>
       <h5>Artist: {info.artist}</h5>
-      <button onClick={() => handleAddRecordToCollection()}>Add</button>
+      <button onClick={() => handleAddRecordToCollection()}>Collect</button>
+      <button onClick={() => handleAddRecordToWishlist()}>Wishlist</button>
       <img alt={info.name} src={images.extraLarge} />
     </div>
   );

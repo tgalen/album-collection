@@ -34,7 +34,7 @@ const getUserCollectedRecords = asyncHandler(async (req, res) => {
 });
 
 //description: GET wishlist records by :id (userName)
-//@route GET /api/records/wishlistededrecords/:id
+//@route GET /api/records/wishlistededrecords/:idx`
 const getUserWishlistedRecords = asyncHandler(async (req, res) => {
   console.log(req.params);
   const user = await User.find({ userName: req.params.id });
