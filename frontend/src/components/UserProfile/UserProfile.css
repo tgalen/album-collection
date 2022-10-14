@@ -1,0 +1,8 @@
+.profile-container {
+  display: flex;
+  height: 100vh;
+}
+
+.content-container {
+  margin: auto;
+}

@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import SearchedUser from "../SearchedUser/SearchedUser";
 import UserProfile from "../UserProfile/UserProfile";
 import "./SearchUsers.css";
 
@@ -5,8 +7,8 @@ const SearchUSers = ({
   users,
   userSearchInput,
   setUserSearchInput,
-  searchedUser,
-  setSearchedUser,
+  // searchedUser,
+  // setSearchedUser,
 }) => {
   const handleUserSearchInput = (e) => {
     setUserSearchInput(e.target.value);
@@ -21,13 +23,10 @@ const SearchUSers = ({
     });
 
   const handleClearUserSearch = () => {
-    setSearchedUser(null);
+    // setSearchedUser(null);
     setUserSearchInput("");
   };
-  const handleSelectUser = (user) => {
-    setSearchedUser(user);
-  };
-  console.log(searchedUser);
+
   return (
     <div className="search-users-container">
       <div className="search-users-content">
@@ -42,13 +41,9 @@ const SearchUSers = ({
 
         {userSearchInput !== "" &&
           filteredUsersBySearchInput.map((user) => {
-            return (
-              <button onClick={() => handleSelectUser(user)}>
-                {user.userName}
-              </button>
-            );
+            return <SearchedUser user={user} />;
           })}
-        {searchedUser && <UserProfile searchedUser={searchedUser} />}
+        {/* {searchedUser && <UserProfile searchedUser={searchedUser} />} */}
       </div>
     </div>
   );
