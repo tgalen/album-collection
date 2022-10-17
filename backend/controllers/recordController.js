@@ -11,12 +11,10 @@ const { faSave } = require("@fortawesome/free-solid-svg-icons");
 //@ route GET /api/records
 // https://www.mongodb.com/docs/manual/reference/operator/query/elemMatch/
 const getRecordCollection = asyncHandler(async (req, res) => {
-  console.log(req.body);
   const user = await User.find({ userName: req.body.userName });
   console.log(user);
-  const { _id, userName } = user[0];
-  console.log(_id);
-  // console.log(userName);
+  const { _id } = user[0];
+
   const records = await Record.find({ collectedUsers: _id }); // need to reference collectedUser
 
   res.status(200).json(records);
