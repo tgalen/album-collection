@@ -38,10 +38,18 @@ const SearchUSers = ({
           value={userSearchInput}
         ></input>
         <button onClick={handleClearUserSearch}>Clear Search</button>
+        {userSearchInput !== "" && (
+          <h3>{`${filteredUsersBySearchInput.length} matching users`}</h3>
+        )}
 
         {userSearchInput !== "" &&
           filteredUsersBySearchInput.map((user) => {
-            return <SearchedUser user={user} />;
+            return (
+              <SearchedUser
+                user={user}
+                setUserSearchInput={setUserSearchInput}
+              />
+            );
           })}
         {/* {searchedUser && <UserProfile searchedUser={searchedUser} />} */}
       </div>
