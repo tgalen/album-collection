@@ -45,6 +45,16 @@ const UserProfile = ({ searchedUser }) => {
         {userCollection && (
           <h5>{`${userCollection.length} collected records`}</h5>
         )}
+        {userCollection &&
+          userCollection.map((record) => {
+            return (
+              <div key={record.name}>
+                <h3>{record.name}</h3>
+                <h4>{record.artist}</h4>
+                <img src={record.images.large} alt={record.name} />
+              </div>
+            );
+          })}
         {userWishlist && <h5>{`${userWishlist.length} wishlisted records`}</h5>}
       </div>
     </div>
