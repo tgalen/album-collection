@@ -15,6 +15,24 @@ const UserProfile = ({ searchedUser }) => {
   const splitURL = currentURL.split("/");
   const userName = splitURL[splitURL.length - 1];
 
+  const collectedArtists =
+    userCollection &&
+    userCollection.map((record) => {
+      return record.artist;
+    });
+
+  const filterDuplicateCollectedArtists =
+    userCollection &&
+    collectedArtists.filter(
+      (artist, index) => collectedArtists.indexOf(artist) === index
+    );
+
+  const sortArtistsAlphabetically =
+    userCollection &&
+    filterDuplicateCollectedArtists.sort((a, b) => {
+      return a.replace(/^The /, "") > b.replace(/^The /, "") ? 1 : -1;
+    });
+
   const getUserCollectedRecords = async () => {
     setUserCollection(null);
 
@@ -45,6 +63,8 @@ const UserProfile = ({ searchedUser }) => {
         {userCollection && (
           <h5>{`${userCollection.length} collected records`}</h5>
         )}
+        {userCollection &&
+          sortArtistsAlphabetically.map((artist) => <h3>{artist}</h3>)}
         {userCollection &&
           userCollection.map((record) => {
             return (
