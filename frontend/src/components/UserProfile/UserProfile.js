@@ -27,9 +27,27 @@ const UserProfile = ({ searchedUser }) => {
       (artist, index) => collectedArtists.indexOf(artist) === index
     );
 
-  const sortArtistsAlphabetically =
+  const sortCollectedArtistsAlphabetically =
     userCollection &&
     filterDuplicateCollectedArtists.sort((a, b) => {
+      return a.replace(/^The /, "") > b.replace(/^The /, "") ? 1 : -1;
+    });
+
+  const wishlistedArtists =
+    userWishlist &&
+    userWishlist.map((record) => {
+      return record.artist;
+    });
+
+  const filterDuplicateWishlistedArtists =
+    userWishlist &&
+    wishlistedArtists.filter(
+      (artist, index) => wishlistedArtists.indexOf(artist) === index
+    );
+
+  const sortWishlistedArtistsAlphabetically =
+    userWishlist &&
+    filterDuplicateWishlistedArtists.sort((a, b) => {
       return a.replace(/^The /, "") > b.replace(/^The /, "") ? 1 : -1;
     });
 
@@ -64,7 +82,7 @@ const UserProfile = ({ searchedUser }) => {
           <h5>{`${userCollection.length} collected records`}</h5>
         )}
         {userCollection &&
-          sortArtistsAlphabetically.map((artist) => <h3>{artist}</h3>)}
+          sortCollectedArtistsAlphabetically.map((artist) => <h3>{artist}</h3>)}
         {userCollection &&
           userCollection.map((record) => {
             return (
@@ -76,6 +94,10 @@ const UserProfile = ({ searchedUser }) => {
             );
           })}
         {userWishlist && <h5>{`${userWishlist.length} wishlisted records`}</h5>}
+        {userWishlist &&
+          sortWishlistedArtistsAlphabetically.map((artist) => (
+            <h3>{artist}</h3>
+          ))}
       </div>
     </div>
   );
