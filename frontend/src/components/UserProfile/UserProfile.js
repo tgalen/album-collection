@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ArtistCard from "../ArtistCard/ArtistCard";
 import "./UserProfile.css";
 
 const UserProfile = ({ searchedUser }) => {
@@ -82,7 +83,15 @@ const UserProfile = ({ searchedUser }) => {
           <h5>{`${userCollection.length} collected records`}</h5>
         )}
         {userCollection &&
-          sortCollectedArtistsAlphabetically.map((artist) => <h3>{artist}</h3>)}
+          sortCollectedArtistsAlphabetically.map((artist) => {
+            return (
+              <ArtistCard
+                artist={artist}
+                records={userCollection}
+                key={artist}
+              />
+            );
+          })}
         {userCollection &&
           userCollection.map((record) => {
             return (

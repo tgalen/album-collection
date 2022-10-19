@@ -1,23 +1,38 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRecordVinyl } from "@fortawesome/free-solid-svg-icons";
 import "./ArtistCard.css";
-const ArtistCard = ({ collection, artist }) => {
-  // returns an array of objects with each object being the small image album art
-  const getArtistRecordCoverArt = (targetArtist, imageSize) => {
+const ArtistCard = ({ records, artist }) => {
+  const getArtistRecords = (artist) => {
     const artistRecords =
-      collection &&
-      collection.filter((album) => {
-        return album.artists[0].name === targetArtist;
+      records &&
+      records.filter((record) => {
+        return record.artist === artist;
       });
-    const artistRecordCovers =
-      collection &&
-      artistRecords.map((album) => {
-        return album.images[imageSize];
-      });
-    return artistRecordCovers;
+
+    return artistRecords;
   };
 
+  console.log(getArtistRecords(artist));
+
+  // returns an array of objects with each object being the small image album art
+  // const getArtistRecordCoverArt = (targetArtist, imageSize) => {
+  //   const artistRecords =
+  //     records &&
+  //     records.filter((album) => {
+  //       return album.artist === targetArtist;
+  //     });
+
+  // console.log(artistRecords);
+  // const artistRecordCovers =
+  //   records &&
+  //   artistRecords.map((album) => {
+  //     return album.images[imageSize];
+  //   });
+  // return artistRecordCovers;
+  // };
+
   // console.log(getArtistRecordCoverArt(artist));
+  // var item = items[Math.floor(Math.random() * items.length)];
 
   return (
     <div className="artist-card-container">
@@ -25,7 +40,7 @@ const ArtistCard = ({ collection, artist }) => {
         className="artist-album-image"
         style={{
           backgroundImage: `linear-gradient(to right, transparent, 50%, black), url("${
-            getArtistRecordCoverArt(artist, 0)[0].url
+            getArtistRecords(artist)[0].images.extraLarge
           }")`,
         }}
       ></div>
@@ -33,7 +48,7 @@ const ArtistCard = ({ collection, artist }) => {
         <h3>{artist}</h3>
         <div className="artist-collection-count">
           <FontAwesomeIcon icon={faRecordVinyl} className="record-icon" />
-          <h2>{getArtistRecordCoverArt(artist).length}</h2>
+          <h2>{getArtistRecords(artist).length}</h2>
         </div>
       </div>
     </div>
