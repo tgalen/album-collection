@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { FaUser } from "react-icons/fa";
 import ArtistCard from "../ArtistCard/ArtistCard";
 import "./UserProfile.css";
 
@@ -75,8 +76,25 @@ const UserProfile = ({ searchedUser }) => {
   return (
     <div className="profile-container">
       <div className="content-container">
-        <h1>profile</h1>
-        <p>{userName}</p>
+        <div className="profile-nav-bar">
+          <div className="user-display-container">
+            <FaUser />
+            <h1>{userName}</h1>
+          </div>
+          <div className="record-data-container">
+            {userCollection && (
+              <div className="collection-data-container">
+                <h4>{`${userCollection.length} Collected`}</h4>
+              </div>
+            )}
+            {userWishlist && (
+              <div className="wishlist-data-container">
+                <h4>{`${userWishlist.length} Wishlisted`}</h4>
+              </div>
+            )}
+          </div>
+        </div>
+
         {/* <h1>{searchedUser && searchedUser.userName}</h1>
       <h3>{searchedUser && searchedUser.email}</h3> */}
         {userCollection && (
