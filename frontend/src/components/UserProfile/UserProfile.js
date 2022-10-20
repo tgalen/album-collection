@@ -95,12 +95,6 @@ const UserProfile = ({ searchedUser }) => {
           </div>
         </div>
 
-        {/* <h1>{searchedUser && searchedUser.userName}</h1>
-      <h3>{searchedUser && searchedUser.email}</h3> */}
-        {userCollection && (
-          <h5>{`${userCollection.length} collected records`}</h5>
-        )}
-
         {userCollection &&
           sortCollectedArtistsAlphabetically.map((artist) => {
             return (
@@ -111,16 +105,7 @@ const UserProfile = ({ searchedUser }) => {
               />
             );
           })}
-        {userCollection &&
-          userCollection.map((record) => {
-            return (
-              <div key={record.name}>
-                <h3>{record.name}</h3>
-                <h4>{record.artist}</h4>
-                <img src={record.images.large} alt={record.name} />
-              </div>
-            );
-          })}
+
         {userWishlist && <h5>{`${userWishlist.length} wishlisted records`}</h5>}
         {userWishlist &&
           sortWishlistedArtistsAlphabetically.map((artist) => (
