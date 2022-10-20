@@ -5,6 +5,7 @@
   border-radius: 15px;
   background-color: black;
   max-width: 900px;
+  margin: auto;
 }
 
 .artist-album-image {
