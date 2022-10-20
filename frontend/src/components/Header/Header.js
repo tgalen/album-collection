@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <header id="header">
+    <header className="header">
       <div className="logo-container">
         <Link to={user ? "/dashboard" : "/"}>
           <img className="logo" src={logo} alt="Record Keeper Logo" />

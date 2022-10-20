@@ -82,6 +82,7 @@ const UserProfile = ({ searchedUser }) => {
         {userCollection && (
           <h5>{`${userCollection.length} collected records`}</h5>
         )}
+
         {userCollection &&
           sortCollectedArtistsAlphabetically.map((artist) => {
             return (
