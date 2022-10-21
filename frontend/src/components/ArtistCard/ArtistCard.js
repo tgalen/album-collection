@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRecordVinyl } from "@fortawesome/free-solid-svg-icons";
 import "./ArtistCard.css";
 const ArtistCard = ({ records, artist }) => {
+  console.log(artist);
   const getArtistRecords = (artist) => {
     const artistRecords =
       records &&
