@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
-import ArtistCard from "../ArtistCard/ArtistCard";
+import ArtistList from "../ArtistList/ArtistList";
 import "./UserProfile.css";
 
 const UserProfile = ({ searchedUser }) => {
   const [userCollection, setUserCollection] = useState(null);
   const [userWishlist, setUserWishlist] = useState(null);
+  const [recordsToDisplay, setRecordsToDisplay] = useState("collection");
   const COLLECTED_RECORDS_API =
     "http://localhost:5000/api/records/collectedrecords/";
 
@@ -68,15 +69,52 @@ const UserProfile = ({ searchedUser }) => {
     setUserWishlist(response.data);
   };
 
+  const handleCollectionClick = () => {
+    setRecordsToDisplay("collection");
+  };
+  console.log(recordsToDisplay);
+
+  const handleWishlistClick = () => {
+    setRecordsToDisplay("wishlist");
+  };
   useEffect(() => {
     getUserCollectedRecords();
     getUserWishlistedRecords();
   }, []);
   // userCollection && console.log(userCollection);
   return (
-    <div className="profile-container">
-      <div className="content-container">
-        <div className="profile-nav-bar">
+    <div className="content-container">
+      <section className="profile-nav-bar">
+        <div className="user-display-container">
+          <FaUser />
+          <h1>{userName}</h1>
+        </div>
+        <div className="record-data-container">
+          {userCollection && (
+            <div className="collection-data-container">
+              <button
+                onClick={() => {
+                  handleCollectionClick();
+                }}
+              >
+                Collection
+              </button>
+            </div>
+          )}
+          {userWishlist && (
+            <div className="wishlist-data-container">
+              <button
+                onClick={() => {
+                  handleWishlistClick();
+                }}
+              >
+                Wishlist
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+      {/* <div className="profile-nav-bar">
           <div className="user-display-container">
             <FaUser />
             <h1>{userName}</h1>
@@ -92,26 +130,15 @@ const UserProfile = ({ searchedUser }) => {
                 <h4>{`${userWishlist.length} Wishlisted`}</h4>
               </div>
             )}
-          </div>
-        </div>
-
-        {userCollection &&
-          sortCollectedArtistsAlphabetically.map((artist) => {
-            return (
-              <ArtistCard
-                artist={artist}
-                records={userCollection}
-                key={artist}
-              />
-            );
-          })}
-
-        {userWishlist && <h5>{`${userWishlist.length} wishlisted records`}</h5>}
-        {userWishlist &&
-          sortWishlistedArtistsAlphabetically.map((artist) => (
-            <h3>{artist}</h3>
-          ))}
-      </div>
+          </div> */}
+      {/* </div> */}
+      <section className="record-display">
+        <ArtistList
+          records={
+            recordsToDisplay === "collection" ? userCollection : userWishlist
+          }
+        />
+      </section>
     </div>
   );
 };
