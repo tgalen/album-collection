@@ -5,13 +5,14 @@ import "./SearchLastfm.css";
 const SearchLastfm = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSeachResults] = useState(null);
-  const SEARCH_ENDPOINT =
-    "http://ws.audioscrobbler.com/2.0/?method=album.search&album=";
+
+  const NODE_ENDPOINT = `http://localhost:5000/search/${searchTerm}`;
 
   const handleSearch = () => {
-    fetch(
-      `${SEARCH_ENDPOINT}${searchTerm}&api_key=${process.env.REACT_APP_LASTFM_API_KEY}&format=json&limit=20`
-    )
+    // fetch(
+    //   `${SEARCH_ENDPOINT}${searchTerm}&api_key=${process.env.REACT_APP_LASTFM_API_KEY}&format=json&limit=20`
+    // )
+    fetch(NODE_ENDPOINT)
       .then((response) => {
         if (response.ok) {
           console.log(response);

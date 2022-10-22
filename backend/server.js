@@ -15,8 +15,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// app.get("/search", (req, res) => {
+//   console.log("yo");
+//   res.send("search last fm");
+// });
 app.use("/api/records", require("./routes/recordRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
+app.use("/search", require("./routes/searchRoutes"));
 
 app.use(errorHandler);
 
