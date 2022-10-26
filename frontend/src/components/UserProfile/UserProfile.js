@@ -5,7 +5,7 @@ import ArtistList from "../ArtistList/ArtistList";
 import "./UserProfile.css";
 
 // need spinner for null and NoRecordsToDisplay for .length === 0
-const UserProfile = ({ searchedUser }) => {
+const UserProfile = () => {
   const [userCollection, setUserCollection] = useState(null);
   const [userWishlist, setUserWishlist] = useState(null);
   const [recordsToDisplay, setRecordsToDisplay] = useState("collection");
@@ -18,24 +18,6 @@ const UserProfile = ({ searchedUser }) => {
   const currentURL = window.location.href;
   const splitURL = currentURL.split("/");
   const userName = splitURL[splitURL.length - 1];
-
-  // const collectedArtists =
-  //   userCollection &&
-  //   userCollection.map((record) => {
-  //     return record.artist;
-  //   });
-
-  // const filterDuplicateCollectedArtists =
-  //   userCollection &&
-  //   collectedArtists.filter(
-  //     (artist, index) => collectedArtists.indexOf(artist) === index
-  //   );
-
-  // const sortCollectedArtistsAlphabetically =
-  //   userCollection &&
-  //   filterDuplicateCollectedArtists.sort((a, b) => {
-  //     return a.replace(/^The /, "") > b.replace(/^The /, "") ? 1 : -1;
-  //   });
 
   const getUserCollectedRecords = async () => {
     setUserCollection(null);

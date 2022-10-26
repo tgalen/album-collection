@@ -10,16 +10,17 @@
 
 .artist-album-image {
   height: 100%;
-  width: 70%;
+  width: 50%;
   overflow: hidden;
   display: inline-block;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  background-repeat: no-repeat;
 }
 
 .artist-collection-details {
   height: 100%;
-  width: 30%;
+  width: 50%;
   display: inline-block;
   margin: auto;
   color: #7f7f7f;
@@ -31,6 +32,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: left;
 }
 
 .artist-collection-count {
@@ -44,7 +46,7 @@
   height: 30px;
   width: 30px;
   margin-right: 1%;
-  margin-top: 4%;
+  /* margin-top: 4%; */
   /* margin-bottom: 0; */
 }
 
@@ -52,4 +54,5 @@
   margin: auto;
   overflow: visible;
   margin-left: 1%;
+  margin-bottom: 10%;
 }

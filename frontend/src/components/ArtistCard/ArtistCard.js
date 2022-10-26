@@ -50,6 +50,13 @@ const ArtistCard = ({ records, artist }) => {
         <div className="artist-collection-count">
           <FontAwesomeIcon icon={faRecordVinyl} className="record-icon" />
           <h2>{getArtistRecords(artist).length}</h2>
+
+          {/* <div className="record-icon-container">
+            <FontAwesomeIcon icon={faRecordVinyl} className="record-icon" />
+          </div>
+          <div className="artist-name-container">
+            <h2>{getArtistRecords(artist).length}</h2>
+          </div> */}
         </div>
       </div>
     </div>
