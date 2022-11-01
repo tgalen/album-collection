@@ -1,5 +1,8 @@
 .dashboard-container {
   min-height: 80%;
+  width: 100%;
+  /* display: block; */
+  grid-area: main;
 }
 
 .dashboard-container h1 {
