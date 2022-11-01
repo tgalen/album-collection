@@ -1,7 +1,6 @@
 .landing-container {
   background-color: aqua;
-  height: 90%;
-  display: flex;
+  grid-area: main;
 }
 
 .content {

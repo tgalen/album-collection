@@ -1,5 +1,5 @@
 .dashboard-container {
-  height: 90%;
+  min-height: 80%;
 }
 
 .dashboard-container h1 {

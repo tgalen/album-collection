@@ -1,18 +1,19 @@
 .header {
   /* padding-top: 2%;
   padding-bottom: 2%; */
-  position: relative;
-  top: 0;
-  width: 100%;
+  /* position: relative; */
+  /* top: 0; */
+  /* width: 100%; */
   background-color: #323031;
+  grid-area: header;
   /* min-height: 8vh; */
-  height: 10%;
-  display: flex;
+  /* height: 10%; */
+  /* display: flex; */
 }
 
 .logo-container {
   margin: auto;
-  width: 100%;
+  width: 50%;
   text-align: center;
 }
 

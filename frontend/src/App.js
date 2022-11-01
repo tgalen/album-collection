@@ -13,8 +13,10 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import SearchLastfm from "./components/SearchLastfm/SearchLastfm";
 import UserProfile from "./components/UserProfile/UserProfile";
 import SearchUsers from "./components/SearchUsers/SearchUsers";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
 import Users from "./components/Users/Users";
+import Navbar from "./components/Navbar/Navbar";
 
 // const artistCardStyle = {
 //   height: "400px",
@@ -61,6 +63,7 @@ function App() {
     <div className="main-app">
       <BrowserRouter>
         <Header />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/dashboard" element={<Dashboard users={users} />} />
@@ -90,6 +93,7 @@ function App() {
           />
         </Routes>
         {/* <Users users={users} /> */}
+        <Footer />
       </BrowserRouter>
       {/* <ToastContainer /> */}
     </div>

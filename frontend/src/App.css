@@ -1,4 +1,13 @@
 .main-app {
-  background-color: white;
   height: 100vh;
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1.5fr 1fr 0.5fr;
+  grid-template-areas:
+    "header header header header"
+    "navbar main main main"
+    "navbar main main main"
+    "navbar footer footer footer";
+  /* height: 100vh;
+  width: 100vw; */
 }
