@@ -3,12 +3,41 @@
   background-color: blueviolet;
 }
 
+.nav-menu {
+  width: 100%;
+}
+
 .nav-menu li {
   text-decoration: none;
   list-style: none;
   margin: 5%;
 }
 
+.nav-link {
+  background-color: darkblue;
+  width: 60%;
+  text-align: center;
+  height: 40px;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+}
+
+.nav-link span {
+  margin: auto;
+}
+
+.nav-link:hover {
+  background-color: darkgrey;
+}
+
 .nav-menu a {
   color: white;
+}
+
+@media only screen and (max-width: 550px) {
+  .nav-menu li {
+    display: inline-block;
+    margin: 2%;
+  }
 }

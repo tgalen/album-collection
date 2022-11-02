@@ -37,12 +37,7 @@ const Dashboard = ({ users }) => {
   return (
     <div className="dashboard-container">
       <h1>Welcome {user && user.userName}</h1>
-      <Link to="/searchrecordstoadd">
-        <button>Search for Records to Add</button>
-      </Link>
-      <Link to="/searchusers">
-        <div>Search Users</div>
-      </Link>
+
       {userCollection && (
         <section className="record-display">
           <h3>Collection</h3>
