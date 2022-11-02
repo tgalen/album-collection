@@ -26,7 +26,7 @@ const ArtistList = ({ records }) => {
   }
 
   return (
-    <div>
+    <div className="list-container">
       {sortArtistsAlphabetically.map((artist) => {
         console.log(artist);
         return (
