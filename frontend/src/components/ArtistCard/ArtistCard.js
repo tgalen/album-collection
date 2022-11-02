@@ -41,23 +41,25 @@ const ArtistCard = ({ records, artist }) => {
         className="artist-album-image"
         style={{
           backgroundImage: `linear-gradient(to right, transparent, 50%, black), url("${
-            getArtistRecords(artist)[0].images.extraLarge
+            getArtistRecords(artist)[0].images.large
           }")`,
         }}
       ></div>
       <div className="artist-collection-details">
-        <h3>{artist}</h3>
-        <div className="artist-collection-count">
-          <FontAwesomeIcon icon={faRecordVinyl} className="record-icon" />
+        {/* <div className="artist-collection-count"> */}
+        <FontAwesomeIcon icon={faRecordVinyl} />
+        <div className="count-container">
           <h2>{getArtistRecords(artist).length}</h2>
+        </div>
+        <h3>{artist}</h3>
 
-          {/* <div className="record-icon-container">
+        {/* <div className="record-icon-container">
             <FontAwesomeIcon icon={faRecordVinyl} className="record-icon" />
           </div>
           <div className="artist-name-container">
             <h2>{getArtistRecords(artist).length}</h2>
           </div> */}
-        </div>
+        {/* </div> */}
       </div>
     </div>
     // <div

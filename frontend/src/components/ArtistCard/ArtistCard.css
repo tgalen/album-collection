@@ -1,6 +1,6 @@
 .artist-card-container {
-  width: 500px;
-  height: 100px;
+  width: 400px;
+  height: 70px;
   display: flex;
   border-radius: 15px;
   background-color: black;
@@ -10,7 +10,7 @@
 
 .artist-album-image {
   height: 100%;
-  width: 50%;
+  width: 30%;
   overflow: hidden;
   display: inline-block;
   border-top-left-radius: 15px;
@@ -20,39 +20,38 @@
 
 .artist-collection-details {
   height: 100%;
-  width: 50%;
-  display: inline-block;
+  width: 70%;
+  display: flex;
   margin: auto;
+  margin-left: 0;
   color: #7f7f7f;
+  align-items: center;
+}
+
+.count-container {
+  min-width: 10%;
+}
+.artist-collection-details h2 {
+  margin-left: 1%;
+  /* text-align: left; */
 }
 
 .artist-collection-details h3 {
-  margin-top: 5%;
-  margin-left: 5%;
+  margin-right: auto;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-align: left;
+  /* text-align: left; */
 }
 
-.artist-collection-count {
+/* .artist-collection-count {
   height: 40%;
   width: 50%;
   display: flex;
   margin-left: 5%;
   justify-content: center;
-}
-.record-icon {
-  height: 30px;
-  width: 30px;
-  margin-right: 1%;
-  /* margin-top: 4%; */
-  /* margin-bottom: 0; */
-}
-
-.artist-collection-count h2 {
-  margin: auto;
-  overflow: visible;
-  margin-left: 1%;
-  margin-bottom: 10%;
+} */
+.svg-inline--fa {
+  margin-left: 0;
+  height: 40%;
 }
