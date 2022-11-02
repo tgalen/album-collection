@@ -2,3 +2,13 @@
   grid-area: navbar;
   background-color: blueviolet;
 }
+
+.nav-menu li {
+  text-decoration: none;
+  list-style: none;
+  margin: 5%;
+}
+
+.nav-menu a {
+  color: white;
+}
