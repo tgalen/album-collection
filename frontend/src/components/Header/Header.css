@@ -13,19 +13,22 @@
 }
 
 .logo-container {
-  margin: auto;
-  width: 50%;
-  text-align: center;
+  margin-left: 20px;
+  margin-top: 40px;
+  width: 80%;
 }
 
 .logo-container img {
   height: 50px;
+  margin-left: 0;
 }
 
 .login-container {
-  position: absolute;
-  right: 1%;
-  top: 8%;
+  /* position: absolute; */
+  /* right: 1%; */
+  /* top: 8%; */
+  margin: auto;
+  float: right;
   display: inline;
   text-decoration: none;
   width: 20%;
