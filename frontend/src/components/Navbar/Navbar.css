@@ -15,9 +15,9 @@
 
 .nav-link {
   background-color: darkblue;
-  width: 60%;
+  width: 80%;
   text-align: center;
-  height: 40px;
+  height: 30px;
   border-radius: 5px;
   padding: 5px;
   display: flex;
