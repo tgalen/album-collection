@@ -50,6 +50,10 @@ const Header = () => {
     setActive(!isActive);
   };
 
+  const handleActiveFalse = () => {
+    setActive(false);
+  };
+
   return (
     <header className="header">
       <div className="brand-container">
@@ -68,34 +72,37 @@ const Header = () => {
       >
         <ul>
           <li>
-            <Link to="/">
+            <Link
+              to={user ? "/dashboard" : "/"}
+              onClick={() => handleActiveFalse()}
+            >
               <FaHome />
               Home
             </Link>
           </li>
           <li>
-            <Link to="/searchusers">
+            <Link to="/searchusers" onClick={() => handleActiveFalse()}>
               <FaSearch />
               Users
             </Link>
           </li>
           {user ? (
             <li>
-              <button className="btn" onClick={onLogout}>
+              <Link onClick={onLogout} to="/">
                 <FaSignOutAlt />
                 Logout
-              </button>
+              </Link>
             </li>
           ) : (
             <>
               {" "}
               <li>
-                <Link to="/login">
+                <Link to="/login" onClick={() => handleActiveFalse()}>
                   <FaSignInAlt /> Login
                 </Link>
               </li>
               <li>
-                <Link to="/register">
+                <Link to="/register" onClick={() => handleActiveFalse()}>
                   <FaUser />
                   Register
                 </Link>
