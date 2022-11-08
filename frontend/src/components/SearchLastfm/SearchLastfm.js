@@ -29,7 +29,7 @@ const SearchLastfm = () => {
   };
 
   return (
-    <div>
+    <div className="search-lastfm-container">
       <input
         type="text"
         value={searchTerm}

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   FaSignInAlt,
   FaSignOutAlt,
@@ -22,6 +22,24 @@ const Header = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
 
+  const getWindowSize = () => {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  };
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
@@ -30,10 +48,6 @@ const Header = () => {
 
   const toggleClick = () => {
     setActive(!isActive);
-  };
-
-  const setActiveFalse = () => {
-    setActive(false);
   };
 
   return (
@@ -48,17 +62,19 @@ const Header = () => {
       </button>
       <nav
         className="nav-container"
-        style={{ display: isActive ? "flex" : "none" }}
+        style={{
+          display: windowSize.innerWidth > 800 || isActive ? "flex" : "none",
+        }}
       >
         <ul>
           <li>
-            <Link to="/" onClick={() => setActiveFalse()}>
+            <Link to="/">
               <FaHome />
               Home
             </Link>
           </li>
           <li>
-            <Link to="/searchusers" onClick={() => setActiveFalse()}>
+            <Link to="/searchusers">
               <FaSearch />
               Users
             </Link>
@@ -74,12 +90,12 @@ const Header = () => {
             <>
               {" "}
               <li>
-                <Link to="/login" onClick={() => setActiveFalse()}>
+                <Link to="/login">
                   <FaSignInAlt /> Login
                 </Link>
               </li>
               <li>
-                <Link to="/register" onClick={() => setActiveFalse()}>
+                <Link to="/register">
                   <FaUser />
                   Register
                 </Link>

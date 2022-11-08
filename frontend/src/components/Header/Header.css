@@ -1,10 +1,13 @@
 .header {
   background-color: #323031;
-  grid-area: header;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
+  height: 10vh;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
 }
 
 .brand-container h1 {
@@ -23,6 +26,8 @@
   display: block;
   padding: 1rem;
   border-radius: 10px;
+  background-color: #323031;
+  z-index: 10;
 }
 
 .nav-container li :hover {

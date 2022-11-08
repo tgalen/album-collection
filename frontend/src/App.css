@@ -3,9 +3,9 @@
 }
 
 .main-app {
-  display: grid;
+  /* display: grid; */
   min-height: 100vh;
-  grid-template-columns: 2fr;
+  /* grid-template-columns: 2fr;
   grid-template-rows: minmax(max-content, 130px) minmax(max-content, 4fr) minmax(
       max-content,
       50px
@@ -14,7 +14,7 @@
     "header"
     "main"
     "footer";
-  grid-gap: 0.2rem;
+  grid-gap: 0.2rem; */
   margin: 0;
   padding: 0;
   /* height: 100vh;

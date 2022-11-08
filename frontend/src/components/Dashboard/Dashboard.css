@@ -2,7 +2,7 @@
   /* min-height: 80%; */
   width: 100%;
   /* display: block; */
-  grid-area: main;
+  min-height: 85vh;
 }
 
 .dashboard-container h1 {

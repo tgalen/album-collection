@@ -1,4 +1,5 @@
 .form-container {
   color: white;
   text-align: center;
+  min-height: 85vh;
 }

@@ -1,8 +1,15 @@
 .search-users-container {
   display: flex;
-  height: 90%;
+  height: 85vh;
+  margin: 0;
+  padding: 0;
 }
 
 .search-users-content {
-  margin: auto;
+  height: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0;
 }

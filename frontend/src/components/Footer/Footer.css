@@ -1,6 +1,4 @@
 .footer {
-  height: 100%;
-  width: 100%;
-  grid-area: footer;
+  height: 5vh;
   background-color: darkgray;
 }
