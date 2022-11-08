@@ -4,7 +4,8 @@
 }
 
 .nav-menu {
-  width: 100%;
+  width: 80%;
+  font-size: 1vw;
 }
 
 .nav-menu li {
@@ -21,6 +22,7 @@
   border-radius: 5px;
   padding: 5px;
   display: flex;
+  margin-left: 1%;
 }
 
 .nav-link span {

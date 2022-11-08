@@ -1,5 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
+import {
+  FaSignInAlt,
+  FaSignOutAlt,
+  FaUser,
+  FaSearch,
+  FaHome,
+} from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
 import "./Header.css";
@@ -22,13 +28,23 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="logo-container">
-        <Link to={user ? "/dashboard" : "/"}>
-          <img className="logo" src={logo} alt="Record Keeper Logo" />
-        </Link>
+      <div className="brand-container">
+        <h1>RecordKeepr</h1>
       </div>
-      <div className="login-container">
+      <nav className="nav-container">
         <ul>
+          <li>
+            <Link to="/">
+              <FaHome />
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/searchusers">
+              <FaSearch />
+              Users
+            </Link>
+          </li>
           {user ? (
             <li>
               <button className="btn" onClick={onLogout}>
@@ -53,12 +69,7 @@ const Header = () => {
             </>
           )}
         </ul>
-      </div>
-
-      {/* <div className="nav-container">
-        <Link to="/">Collection</Link>
-        <Link to="/searchspotify">Add Record</Link>
-      </div> */}
+      </nav>
     </header>
   );
 };

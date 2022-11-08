@@ -63,7 +63,7 @@ function App() {
     <div className="main-app">
       <BrowserRouter>
         <Header />
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/dashboard" element={<Dashboard users={users} />} />
