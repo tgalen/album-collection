@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .main-app {
   display: grid;
   min-height: 100vh;
@@ -11,6 +15,8 @@
     "main"
     "footer";
   grid-gap: 0.2rem;
+  margin: 0;
+  padding: 0;
   /* height: 100vh;
   width: 100vw; */
 }
