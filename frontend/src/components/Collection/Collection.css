@@ -34,17 +34,17 @@
   margin: auto;
 }
 
-a {
+/* a {
   width: 60%;
   height: 100px;
   margin: auto;
   margin-bottom: 7px;
   text-decoration: none;
   color: black;
-}
+} */
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
   a {
     width: 40%;
   }
-}
+} */
