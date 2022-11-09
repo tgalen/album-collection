@@ -93,7 +93,7 @@ const Login = () => {
 
             <div className="form-group">
               <p>
-                <Link to="/register">no account? please register</Link>
+                <Link to="/register">No account? Please register</Link>
               </p>
               <button type="submit" className="btn btn-block">
                 Submit
