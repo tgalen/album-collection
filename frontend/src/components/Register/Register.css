@@ -1,5 +1,33 @@
-.form-container {
-  color: white;
+.registration-content-container {
+  color: black;
   text-align: center;
   min-height: 85vh;
+  width: 100%;
+  display: flex;
 }
+
+.registration-form-container {
+  margin: auto;
+  height: 50vh;
+  width: 70vw;
+  max-width: 600px;
+  padding: 5%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin: auto;
+}
+
+.form-group input {
+  border-radius: 5px;
+}
+
+/* @media (max-width: 800px) {
+  .registration-form-container {
+    margin: 20% auto;
+    height: 80%;
+    padding: 10%;
+  }
+} */

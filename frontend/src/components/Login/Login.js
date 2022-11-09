@@ -57,7 +57,7 @@ const Login = () => {
   }
 
   return (
-    <div className="form-container">
+    <div className="login-form-container">
       <section className="heading">
         <h1>
           <FaSignInAlt /> Login
