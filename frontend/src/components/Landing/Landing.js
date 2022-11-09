@@ -4,8 +4,8 @@ import "./Landing.css";
 const Landing = () => {
   return (
     <div className="landing-container">
-      <div className="content">
-        <h2>Welcome to RecordKeepr</h2>
+      <section className="landing-header">
+        <h1>Welcome to RecordKeepr</h1>
         <p>Keep a record of your records</p>
         <Link to="/register">
           <div>Register</div>
@@ -13,7 +13,7 @@ const Landing = () => {
         <Link to="/searchusers">
           <div>Search Users</div>
         </Link>
-      </div>
+      </section>
     </div>
   );
 };

@@ -1,14 +1,26 @@
 .landing-container {
-  background-color: aqua;
+  background-color: white;
   min-height: 85vh;
   margin: 0;
   padding: 0;
+  background-image: url("../../assets/vinylrecordstackxtralarge.jpg");
+  filter: grayscale(70%);
 }
 
-.content {
+.landing-header {
   margin: 0 auto;
+  padding-top: 2%;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
 h2 {
   margin: 0;
+}
+
+@media (max-width: 800px) {
+  .landing-container {
+    background-image: url("../../assets/vinylrecordstacklarge.jpg");
+  }
 }
