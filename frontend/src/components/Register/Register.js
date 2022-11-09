@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
 import { register, reset } from "../../features/auth/authSlice";
+import { Link } from "react-router-dom";
 import "./Register.css";
 import Spinner from "../Spinner/Spinner";
 
@@ -118,6 +119,9 @@ const Register = () => {
               ></input>
             </div>
             <div className="form-group">
+              <p>
+                <Link to="/login">already have an account? login</Link>
+              </p>
               <button type="submit" className="btn btn-block">
                 Submit
               </button>

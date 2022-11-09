@@ -16,12 +16,38 @@
   border-radius: 5px;
 }
 
-.form-group {
+.registration-form-container .form {
+  height: 80%;
+  width: 100%;
+}
+
+.registration-form-container .form-group {
   margin: auto;
 }
 
-.form-group input {
+.registration-form-container .form-group input {
   border-radius: 5px;
+  border: 1px solid gray;
+  padding: 1%;
+  margin: 1.5%;
+  width: 70%;
+}
+.registration-form-container a {
+  color: black;
+}
+
+.registration-form-container button {
+  background-color: black;
+  color: white;
+  margin-top: 3%;
+  border-radius: 5px;
+  padding: 2% 15%;
+  cursor: pointer;
+  border: none;
+}
+
+.registration-form-container button:hover {
+  background-color: coral;
 }
 
 /* @media (max-width: 800px) {
