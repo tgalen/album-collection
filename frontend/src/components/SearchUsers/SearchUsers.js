@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 import SearchedUser from "../SearchedUser/SearchedUser";
 import UserProfile from "../UserProfile/UserProfile";
 import "./SearchUsers.css";
@@ -11,7 +12,7 @@ const SearchUSers = ({
   // setSearchedUser,
 }) => {
   const handleUserSearchInput = (e) => {
-    setUserSearchInput(e.target.value);
+    setUserSearchInput(e.target.value.trim());
   };
 
   const filteredUsersBySearchInput =
@@ -29,15 +30,24 @@ const SearchUSers = ({
 
   return (
     <div className="search-users-container">
+      <section className="search-users-header">
+        <h1>Search Users</h1>
+        <h3>{`${users.length} registered users`}</h3>
+        <div className="search-input-container">
+          <input
+            className="search-user-input"
+            type="text"
+            placeholder="Search Users"
+            onChange={handleUserSearchInput}
+            value={userSearchInput}
+          ></input>
+          <button className="clear-search-btn" onClick={handleClearUserSearch}>
+            Clear Search
+          </button>
+        </div>
+      </section>
+      <section className="search-users-input"></section>
       <div className="search-users-content">
-        <h1>{`${users.length} registered users`}</h1>
-        <input
-          type="text"
-          placeholder="Search Users"
-          onChange={handleUserSearchInput}
-          value={userSearchInput}
-        ></input>
-        <button onClick={handleClearUserSearch}>Clear Search</button>
         {userSearchInput !== "" && (
           <h3>{`${filteredUsersBySearchInput.length} matching users`}</h3>
         )}
