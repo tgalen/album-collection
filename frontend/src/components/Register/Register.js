@@ -120,7 +120,7 @@ const Register = () => {
             </div>
             <div className="form-group">
               <p>
-                <Link to="/login">already have an account? login</Link>
+                <Link to="/login">Already have an account? Login</Link>
               </p>
               <button type="submit" className="btn btn-block">
                 Submit
