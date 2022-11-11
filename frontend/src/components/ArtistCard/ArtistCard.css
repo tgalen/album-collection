@@ -1,11 +1,15 @@
 .artist-card-container {
-  width: 400px;
-  height: 70px;
+  width: 80%;
+  max-width: 80%;
+  height: fit-content;
   display: flex;
-  border-radius: 15px;
-  background-color: black;
+  flex-wrap: wrap;
+  background-color: rgb(17 24 39);
   margin: auto;
   margin-top: 0.3%;
+  border-radius: 10px;
+  padding: 1%;
+  color: #e5e7eb;
 }
 
 .artist-album-image {
@@ -19,17 +23,17 @@
 }
 
 .artist-collection-details {
-  height: 100%;
-  width: 70%;
+  height: 70px;
+  width: 100%;
   display: flex;
   margin: auto;
   margin-left: 0;
-  color: #7f7f7f;
+  /* color: #acacac; */
   align-items: center;
 }
 
 .count-container {
-  min-width: 10%;
+  min-width: 3%;
 }
 .artist-collection-details h2 {
   margin-left: 1%;
@@ -52,6 +56,6 @@
   justify-content: center;
 } */
 .svg-inline--fa {
-  margin-left: 0;
+  margin-left: 2%;
   height: 30%;
 }

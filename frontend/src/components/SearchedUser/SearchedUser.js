@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "./SearchedUser.css";
 
 const SearchedUser = ({ user, setUserSearchInput }) => {
   const navigate = useNavigate();

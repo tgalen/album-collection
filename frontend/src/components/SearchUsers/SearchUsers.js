@@ -47,20 +47,26 @@ const SearchUSers = ({
         </div>
       </section>
       <section className="search-users-input"></section>
-      <div className="search-users-content">
+      <div className="searched-users-display">
         {userSearchInput !== "" && (
-          <h3>{`${filteredUsersBySearchInput.length} matching users`}</h3>
+          <div>
+            <h3>{`${filteredUsersBySearchInput.length} matching users`}</h3>
+          </div>
         )}
 
-        {userSearchInput !== "" &&
-          filteredUsersBySearchInput.map((user) => {
-            return (
-              <SearchedUser
-                user={user}
-                setUserSearchInput={setUserSearchInput}
-              />
-            );
-          })}
+        {userSearchInput !== "" && (
+          <div className="search-results">
+            {" "}
+            {filteredUsersBySearchInput.map((user) => {
+              return (
+                <SearchedUser
+                  user={user}
+                  setUserSearchInput={setUserSearchInput}
+                />
+              );
+            })}
+          </div>
+        )}
         {/* {searchedUser && <UserProfile searchedUser={searchedUser} />} */}
       </div>
     </div>

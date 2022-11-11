@@ -8,7 +8,7 @@ import "./UserProfile.css";
 const UserProfile = () => {
   const [userCollection, setUserCollection] = useState(null);
   const [userWishlist, setUserWishlist] = useState(null);
-  const [recordsToDisplay, setRecordsToDisplay] = useState("collection");
+  const [recordsToDisplay, setRecordsToDisplay] = useState("Collection");
   const COLLECTED_RECORDS_API =
     "http://localhost:5000/api/records/collectedrecords/";
 
@@ -40,47 +40,47 @@ const UserProfile = () => {
   }, []);
 
   const handleCollectionClick = () => {
-    setRecordsToDisplay("collection");
+    setRecordsToDisplay("Collection");
   };
 
   const handleWishlistClick = () => {
-    setRecordsToDisplay("wishlist");
+    setRecordsToDisplay("Wishlist");
   };
   // userCollection && console.log(userCollection);
   return (
-    <div className="content-container">
+    <div className="profile-content-container">
+      <header className="user-display-header">
+        <FaUser />
+        <h1>{userName}</h1>
+        <button>Favorite</button>
+      </header>
+      <div className="record-display-header-container">
+        <h2>{recordsToDisplay}</h2>
+      </div>
       <section className="profile-nav-bar">
-        <div className="user-display-container">
-          <FaUser />
-          <h1>{userName}</h1>
-        </div>
-        <div className="record-data-container">
-          <div className="collection-data-container">
-            <button
-              onClick={() => {
-                handleCollectionClick();
-              }}
-            >
-              Collection
-            </button>
-          </div>
+        <div className="record-nav-container">
+          <button
+            onClick={() => {
+              handleCollectionClick();
+            }}
+          >
+            Collection
+          </button>
 
-          <div className="wishlist-data-container">
-            <button
-              onClick={() => {
-                handleWishlistClick();
-              }}
-            >
-              Wishlist
-            </button>
-          </div>
+          <button
+            onClick={() => {
+              handleWishlistClick();
+            }}
+          >
+            Wishlist
+          </button>
         </div>
       </section>
       <section className="record-display">
         {console.log(recordsToDisplay)}
         <ArtistList
           records={
-            recordsToDisplay === "collection" ? userCollection : userWishlist
+            recordsToDisplay === "Collection" ? userCollection : userWishlist
           }
         />
       </section>

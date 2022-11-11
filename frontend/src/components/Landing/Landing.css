@@ -1,3 +1,13 @@
+.landing-container::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("../../assets/vinylrecordstackxtralarge.jpg");
+  filter: grayscale(70%);
+}
 .landing-container {
   position: relative;
   background-color: white;
@@ -8,17 +18,6 @@
   width: 100%;
   /* background-image: url("../../assets/vinylrecordstackxtralarge.jpg");
   filter: grayscale(70%); */
-}
-
-.landing-container::before {
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-image: url("../../assets/vinylrecordstackxtralarge.jpg");
-  filter: grayscale(70%);
 }
 
 .landing-header {

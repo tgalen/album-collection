@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRecordVinyl } from "@fortawesome/free-solid-svg-icons";
+import RecordDisplay from "../RecordDisplay/RecordDisplay";
 import "./ArtistCard.css";
 const ArtistCard = ({ records, artist }) => {
   console.log(artist);
@@ -37,14 +38,16 @@ const ArtistCard = ({ records, artist }) => {
 
   return (
     <div className="artist-card-container">
-      <div
+      {/* <div
         className="artist-album-image"
         style={{
-          backgroundImage: `linear-gradient(to right, transparent, 50%, black), url("${
-            getArtistRecords(artist)[0].images.large
+          backgroundImage: `linear-gradient(to right, transparent, 80%, black), url("${
+            getArtistRecords(artist)[
+              Math.floor(Math.random() * getArtistRecords(artist).length)
+            ].images.extraLarge
           }")`,
         }}
-      ></div>
+      ></div> */}
       <div className="artist-collection-details">
         {/* <div className="artist-collection-count"> */}
         <FontAwesomeIcon icon={faRecordVinyl} />
@@ -52,15 +55,18 @@ const ArtistCard = ({ records, artist }) => {
           <h2>{getArtistRecords(artist).length}</h2>
         </div>
         <h3>{artist}</h3>
-
         {/* <div className="record-icon-container">
             <FontAwesomeIcon icon={faRecordVinyl} className="record-icon" />
-          </div>
-          <div className="artist-name-container">
+            </div>
+            <div className="artist-name-container">
             <h2>{getArtistRecords(artist).length}</h2>
           </div> */}
         {/* </div> */}
       </div>
+      {records &&
+        getArtistRecords(artist).map((record) => {
+          return <RecordDisplay record={record} />;
+        })}
     </div>
     // <div
     //   className="artist-card"
