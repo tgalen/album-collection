@@ -7,6 +7,8 @@ const ArtistList = ({
   recordsToDisplay,
   userWishlist,
   userCollection,
+  setUserWishlist,
+  setUserCollection,
 }) => {
   console.log(records);
   const artists =
@@ -43,6 +45,8 @@ const ArtistList = ({
             recordsToDisplay={recordsToDisplay}
             userWishlist={userWishlist}
             userCollection={userCollection}
+            setUserCollection={setUserCollection}
+            setUserWishlist={setUserWishlist}
           />
         );
       })}

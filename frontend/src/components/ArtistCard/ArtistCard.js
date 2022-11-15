@@ -8,6 +8,8 @@ const ArtistCard = ({
   recordsToDisplay,
   userWishlist,
   userCollection,
+  setUserWishlist,
+  setUserCollection,
 }) => {
   console.log(artist);
   const getArtistRecords = (artist) => {
@@ -77,6 +79,8 @@ const ArtistCard = ({
               recordsToDisplay={recordsToDisplay}
               userWishlist={userWishlist}
               userCollection={userCollection}
+              setUserCollection={setUserCollection}
+              setUserWishlist={setUserWishlist}
             />
           );
         })}
