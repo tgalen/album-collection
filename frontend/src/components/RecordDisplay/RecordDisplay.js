@@ -1,12 +1,20 @@
 import "./RecordDisplay.css";
 
-const RecordDisplay = ({ record }) => {
-  let image = record.images.medium;
+const RecordDisplay = ({
+  record,
+  recordsToDisplay,
+  userWishlist,
+  userCollection,
+}) => {
   return (
     <div className="record-display-container">
       <img src={record.images.large} />
       <div className="record-title-container">
-        <h4>{record.name}</h4>
+        <p>{record.name}</p>
+      </div>
+      <div className="record-ui-container">
+        {recordsToDisplay === "Wishlist" && <button> + Collect</button>}
+        <button>Delete</button>
       </div>
     </div>
   );

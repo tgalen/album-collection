@@ -2,7 +2,12 @@ import ArtistCard from "../ArtistCard/ArtistCard";
 import NoRecordsToDisplay from "../NoRecordsToDisplay.js/NoRecordsToDisplay";
 import "./ArtistList.css";
 
-const ArtistList = ({ records }) => {
+const ArtistList = ({
+  records,
+  recordsToDisplay,
+  userWishlist,
+  userCollection,
+}) => {
   console.log(records);
   const artists =
     records &&
@@ -31,7 +36,14 @@ const ArtistList = ({ records }) => {
         console.log(artist);
         return (
           //   <div>hi</div>
-          <ArtistCard artist={artist} records={records} key={artist} />
+          <ArtistCard
+            artist={artist}
+            records={records}
+            key={artist}
+            recordsToDisplay={recordsToDisplay}
+            userWishlist={userWishlist}
+            userCollection={userCollection}
+          />
         );
       })}
     </div>

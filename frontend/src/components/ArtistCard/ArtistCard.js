@@ -2,7 +2,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRecordVinyl } from "@fortawesome/free-solid-svg-icons";
 import RecordDisplay from "../RecordDisplay/RecordDisplay";
 import "./ArtistCard.css";
-const ArtistCard = ({ records, artist }) => {
+const ArtistCard = ({
+  records,
+  artist,
+  recordsToDisplay,
+  userWishlist,
+  userCollection,
+}) => {
   console.log(artist);
   const getArtistRecords = (artist) => {
     const artistRecords =
@@ -65,7 +71,14 @@ const ArtistCard = ({ records, artist }) => {
       </div>
       {records &&
         getArtistRecords(artist).map((record) => {
-          return <RecordDisplay record={record} />;
+          return (
+            <RecordDisplay
+              record={record}
+              recordsToDisplay={recordsToDisplay}
+              userWishlist={userWishlist}
+              userCollection={userCollection}
+            />
+          );
         })}
     </div>
     // <div

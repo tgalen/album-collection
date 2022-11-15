@@ -82,6 +82,9 @@ const UserProfile = () => {
           records={
             recordsToDisplay === "Collection" ? userCollection : userWishlist
           }
+          recordsToDisplay={recordsToDisplay}
+          userCollection={userCollection}
+          userWishlist={userWishlist}
         />
       </section>
     </div>
