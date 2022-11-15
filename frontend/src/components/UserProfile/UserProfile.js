@@ -77,7 +77,6 @@ const UserProfile = () => {
         </div>
       </section>
       <section className="record-display">
-        {console.log(recordsToDisplay)}
         <ArtistList
           records={
             recordsToDisplay === "Collection" ? userCollection : userWishlist

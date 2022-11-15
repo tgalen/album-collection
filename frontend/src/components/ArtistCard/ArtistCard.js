@@ -5,11 +5,11 @@ import "./ArtistCard.css";
 const ArtistCard = ({
   records,
   artist,
-  recordsToDisplay,
-  userWishlist,
-  userCollection,
-  setUserWishlist,
-  setUserCollection,
+  // recordsToDisplay,
+  // userWishlist,
+  // userCollection,
+  // setUserWishlist,
+  // setUserCollection,
 }) => {
   console.log(artist);
   const getArtistRecords = (artist) => {
@@ -76,11 +76,11 @@ const ArtistCard = ({
           return (
             <RecordDisplay
               record={record}
-              recordsToDisplay={recordsToDisplay}
-              userWishlist={userWishlist}
-              userCollection={userCollection}
-              setUserCollection={setUserCollection}
-              setUserWishlist={setUserWishlist}
+              // recordsToDisplay={recordsToDisplay}
+              // userWishlist={userWishlist}
+              // userCollection={userCollection}
+              // setUserCollection={setUserCollection}
+              // setUserWishlist={setUserWishlist}
             />
           );
         })}

@@ -1,14 +1,32 @@
 .dashboard-container {
-  /* min-height: 80%; */
   width: 100%;
-  /* display: block; */
   min-height: 85vh;
 }
 
 .dashboard-container h1 {
   margin: 0;
+  padding-top: 2%;
+  padding-left: 2%;
+}
+
+.record-display-header-container {
+  width: 100%;
+  text-align: center;
 }
 
 .record-display {
   text-align: center;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(46, 56, 74);
+}
+
+.dashboard-nav-bar {
+  display: flex;
+  margin-top: 0;
+  width: 100%;
+  margin-bottom: 1%;
+  align-items: center;
+  justify-content: center;
 }

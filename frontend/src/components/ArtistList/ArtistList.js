@@ -4,11 +4,11 @@ import "./ArtistList.css";
 
 const ArtistList = ({
   records,
-  recordsToDisplay,
-  userWishlist,
-  userCollection,
-  setUserWishlist,
-  setUserCollection,
+  // recordsToDisplay,
+  // userWishlist,
+  // userCollection,
+  // setUserWishlist,
+  // setUserCollection,
 }) => {
   console.log(records);
   const artists =
@@ -42,11 +42,11 @@ const ArtistList = ({
             artist={artist}
             records={records}
             key={artist}
-            recordsToDisplay={recordsToDisplay}
-            userWishlist={userWishlist}
-            userCollection={userCollection}
-            setUserCollection={setUserCollection}
-            setUserWishlist={setUserWishlist}
+            // recordsToDisplay={recordsToDisplay}
+            // userWishlist={userWishlist}
+            // userCollection={userCollection}
+            // setUserCollection={setUserCollection}
+            // setUserWishlist={setUserWishlist}
           />
         );
       })}
