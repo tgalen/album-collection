@@ -13,6 +13,7 @@ const RecordDisplay = ({
   userCollection,
   setUserWishlist,
   setUserCollection,
+  readOnly,
 }) => {
   const { user } = useSelector((state) => state.auth);
 
@@ -62,19 +63,21 @@ const RecordDisplay = ({
         <p className="artist-name">{record.artist}</p>
         <p className="record-name">{record.name}</p>
       </div>
-      <div className="record-ui-container">
-        {recordsToDisplay === "Wishlist" && (
-          <button
-            onClick={() => handleAddRecordToCollectionFromWishlist(record)}
-          >
-            {" "}
-            + Collect
+      {!readOnly && (
+        <div className="record-ui-container">
+          {recordsToDisplay === "Wishlist" && (
+            <button
+              onClick={() => handleAddRecordToCollectionFromWishlist(record)}
+            >
+              {" "}
+              + Collect
+            </button>
+          )}
+          <button onClick={() => handleDeleteRecord(recordsToDisplay)}>
+            Delete
           </button>
-        )}
-        <button onClick={() => handleDeleteRecord(recordsToDisplay)}>
-          Delete
-        </button>
-      </div>
+        </div>
+      )}
     </div>
   );
 };

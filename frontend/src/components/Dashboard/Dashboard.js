@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import ArtistList from "../ArtistList/ArtistList";
 import RecordDisplay from "../RecordDisplay/RecordDisplay";
 import "./Dashboard.css";
 
@@ -10,14 +9,13 @@ const Dashboard = ({ users }) => {
   const [userCollection, setUserCollection] = useState(null);
   const [userWishlist, setUserWishlist] = useState(null);
   const [recordsToDisplay, setRecordsToDisplay] = useState("Collection");
+  const readOnly = false;
   const { user } = useSelector((state) => state.auth);
   const COLLECTED_RECORDS_API =
     "http://localhost:5000/api/records/collectedrecords/";
 
   const WISHLISTED_RECORDS_API =
     "http://localhost:5000/api/records/wishlistedrecords/";
-
-  console.log(userWishlist);
 
   const getUserCollectedRecords = async () => {
     setUserCollection(null);
@@ -50,21 +48,17 @@ const Dashboard = ({ users }) => {
   const sortCollectedArtistsAlphabetically =
     userCollection &&
     userCollection.sort((a, b) => {
-      if (a.artist) {
-        return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
-          ? 1
-          : -1;
-      }
+      return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
+        ? 1
+        : -1;
     });
 
   const sortWishlistedArtistsAlphabetically =
     userWishlist &&
     userWishlist.sort((a, b) => {
-      if (a.artist) {
-        return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
-          ? 1
-          : -1;
-      }
+      return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
+        ? 1
+        : -1;
     });
 
   return (
@@ -130,6 +124,7 @@ const Dashboard = ({ users }) => {
                   userCollection={userCollection}
                   setUserCollection={setUserCollection}
                   setUserWishlist={setUserWishlist}
+                  readOnly={readOnly}
                 />
               );
             })
@@ -143,6 +138,7 @@ const Dashboard = ({ users }) => {
                   userCollection={userCollection}
                   setUserCollection={setUserCollection}
                   setUserWishlist={setUserWishlist}
+                  readOnly={readOnly}
                 />
               );
             })}

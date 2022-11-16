@@ -1,13 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { addRecordToCollection } from "../../features/records/recordSlice";
 import "./SearchedAlbum.css";
-const albumCardStyle = {
-  height: "400px",
-  width: "310px",
-  display: "inline-block",
-  margin: "3%",
-  boxSizing: "border-box",
-};
 
 const SearchedAlbum = ({ info, images }) => {
   const { user } = useSelector((state) => state.auth);
@@ -39,13 +32,6 @@ const SearchedAlbum = ({ info, images }) => {
   };
 
   return (
-    // <div style={albumCardStyle}>
-    //   <h3>{info.name}</h3>
-    //   <h5>Artist: {info.artist}</h5>
-    //   <button onClick={() => handleAddRecordToCollection()}>Collect</button>
-    //   <button onClick={() => handleAddRecordToWishlist()}>Wishlist</button>
-    //   <img alt={info.name} src={images.extraLarge} />
-    // </div>
     <div className="searched-record-container">
       <img src={images.large} />
       <div className="searched-record-title-container">

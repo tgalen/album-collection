@@ -42,8 +42,12 @@
 }
 
 .record-display {
-  width: 100%;
+  width: 90%;
+  margin: auto;
   padding: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(46, 56, 74);
 }
 
 .record-data-container {

@@ -1,12 +1,8 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import Header from "./components/Header/Header";
 import Landing from "./components/Landing/Landing";
-import Collection from "./components/Collection/Collection";
-import SearchSpotify from "./components/SearchSpotify/SearchSpotify";
-import ArtistsAlbums from "./components/ArtistsAlbums/ArtistsAlbums";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -15,8 +11,6 @@ import UserProfile from "./components/UserProfile/UserProfile";
 import SearchUsers from "./components/SearchUsers/SearchUsers";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
-import Users from "./components/Users/Users";
-import Navbar from "./components/Navbar/Navbar";
 
 // const artistCardStyle = {
 //   height: "400px",

@@ -1,6 +1,0 @@
-.list-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 80%);
-  justify-content: space-around;
-  grid-gap: 20px;
-}

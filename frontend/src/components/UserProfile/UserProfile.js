@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
-import ArtistList from "../ArtistList/ArtistList";
+import RecordDisplay from "../RecordDisplay/RecordDisplay";
 import "./UserProfile.css";
 
 // need spinner for null and NoRecordsToDisplay for .length === 0
@@ -9,6 +9,7 @@ const UserProfile = () => {
   const [userCollection, setUserCollection] = useState(null);
   const [userWishlist, setUserWishlist] = useState(null);
   const [recordsToDisplay, setRecordsToDisplay] = useState("Collection");
+  const readOnly = true;
   const COLLECTED_RECORDS_API =
     "http://localhost:5000/api/records/collectedrecords/";
 
@@ -46,6 +47,22 @@ const UserProfile = () => {
   const handleWishlistClick = () => {
     setRecordsToDisplay("Wishlist");
   };
+
+  const sortCollectedArtistsAlphabetically =
+    userCollection &&
+    userCollection.sort((a, b) => {
+      return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
+        ? 1
+        : -1;
+    });
+
+  const sortWishlistedArtistsAlphabetically =
+    userWishlist &&
+    userWishlist.sort((a, b) => {
+      return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
+        ? 1
+        : -1;
+    });
   // userCollection && console.log(userCollection);
   return (
     <div className="profile-content-container">
@@ -77,7 +94,7 @@ const UserProfile = () => {
         </div>
       </section>
       <section className="record-display">
-        <ArtistList
+        {/* <ArtistList
           records={
             recordsToDisplay === "Collection" ? userCollection : userWishlist
           }
@@ -86,7 +103,37 @@ const UserProfile = () => {
           userWishlist={userWishlist}
           setUserCollection={setUserCollection}
           setUserWishlist={setUserWishlist}
-        />
+        /> */}
+
+        {recordsToDisplay === "Collection"
+          ? userCollection &&
+            sortCollectedArtistsAlphabetically.map((record) => {
+              return (
+                <RecordDisplay
+                  record={record}
+                  recordsToDisplay={recordsToDisplay}
+                  userWishlist={userWishlist}
+                  userCollection={userCollection}
+                  setUserCollection={setUserCollection}
+                  setUserWishlist={setUserWishlist}
+                  readOnly={readOnly}
+                />
+              );
+            })
+          : userWishlist &&
+            sortWishlistedArtistsAlphabetically.map((record) => {
+              return (
+                <RecordDisplay
+                  record={record}
+                  recordsToDisplay={recordsToDisplay}
+                  userWishlist={userWishlist}
+                  userCollection={userCollection}
+                  setUserCollection={setUserCollection}
+                  setUserWishlist={setUserWishlist}
+                  readOnly={readOnly}
+                />
+              );
+            })}
       </section>
     </div>
   );
