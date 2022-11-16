@@ -12,20 +12,9 @@ import SearchUsers from "./components/SearchUsers/SearchUsers";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
-// const artistCardStyle = {
-//   height: "400px",
-//   width: " 400px",
-//   border: "1px solid grey",
-//   borderRadius: "5px",
-//   textAlign: "center",
-//   display: "block",
-// };
-
 function App() {
-  // const [collection, setCollection] = useState(null);
   const [users, setUsers] = useState(null);
   const [userSearchInput, setUserSearchInput] = useState("");
-  // const [searchedUser, setSearchedUser] = useState(null);
   const USERS_API = "http://localhost:5000/api/users/";
 
   const getUsers = async () => {
@@ -35,39 +24,17 @@ function App() {
   useEffect(() => {
     getUsers();
   }, []);
-  // const fetchRecordColelction = () => {
-  //   fetch("http://localhost:5000/api/vinylcollection")
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         console.log(response);
-  //         return response.json();
-  //       }
-  //       throw response;
-  //     })
-  //     .then((data) => {
-  //       setCollection(data); // array of albums
-  //       console.log(data);
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
-
-  // useEffect(fetchRecordColelction, []);
 
   return (
     <div className="main-app">
       <BrowserRouter>
         <Header />
-        {/* <Navbar /> */}
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/dashboard" element={<Dashboard users={users} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          {/* <Route
-            path="/:id"
-            element={<ArtistsAlbums collection={collection} />}
-          /> */}
-          {/* <Route path="users/:id" element={<UserProfile users={users} />} /> */}
+
           <Route path="/searchrecordstoadd" element={<SearchLastfm />} />
           <Route
             path="/searchusers"
@@ -76,8 +43,6 @@ function App() {
                 users={users}
                 userSearchInput={userSearchInput}
                 setUserSearchInput={setUserSearchInput}
-                // searchedUser={searchedUser}
-                // setSearchedUser={setSearchedUser}
               />
             }
           />
@@ -86,10 +51,8 @@ function App() {
             element={<UserProfile users={users} />}
           />
         </Routes>
-        {/* <Users users={users} /> */}
         <Footer />
       </BrowserRouter>
-      {/* <ToastContainer /> */}
     </div>
   );
 }

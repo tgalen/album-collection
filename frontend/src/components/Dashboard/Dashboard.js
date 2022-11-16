@@ -68,18 +68,6 @@ const Dashboard = ({ users }) => {
         <button className="search-external-btn">Search Records To Add</button>
       </Link>
 
-      {/* {userCollection && (
-        <section className="record-display">
-          <h3>Collection</h3>
-          <ArtistList records={userCollection} />
-        </section>
-      )}
-      {userWishlist && (
-        <section className="record-display">
-          <h3>Wishlist</h3>
-          <ArtistList records={userWishlist} />
-        </section>
-      )} */}
       <div className="record-display-header-container">
         <h2>{recordsToDisplay}</h2>
       </div>
@@ -103,16 +91,6 @@ const Dashboard = ({ users }) => {
         </div>
       </section>
       <section className="dashboard-record-display">
-        {/* <ArtistList
-          records={
-            recordsToDisplay === "Collection" ? userCollection : userWishlist
-          }
-          recordsToDisplay={recordsToDisplay}
-          userCollection={userCollection}
-          userWishlist={userWishlist}
-          setUserCollection={setUserCollection}
-          setUserWishlist={setUserWishlist}
-        /> */}
         {recordsToDisplay === "Collection"
           ? userCollection &&
             sortCollectedArtistsAlphabetically.map((record) => {
