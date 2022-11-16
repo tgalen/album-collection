@@ -14,7 +14,6 @@ const RecordDisplay = ({
   setUserWishlist,
   setUserCollection,
 }) => {
-  const UPDATE_RECORD_API = `http://localhost:5000/api/records/${record._id}`;
   const { user } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
@@ -26,16 +25,16 @@ const RecordDisplay = ({
   };
 
   const updateWishlistBodyModel = {
-    wishlistedUser: user._id,
+    wishlistedUsers: user._id,
     record: record._id,
   };
 
   const updateCollectionBodyModel = {
-    collectedUser: user._id,
+    collectedUsers: user._id,
     record: record._id,
   };
 
-  const handleAddRecordToCollection = (selectedRecord) => {
+  const handleAddRecordToCollectionFromWishlist = (selectedRecord) => {
     const updatedWishlist = userWishlist.filter(
       (wishedRecord) => wishedRecord !== selectedRecord
     );
@@ -48,6 +47,14 @@ const RecordDisplay = ({
     dispatch(addRecordToCollection(collectBodyModel));
   };
 
+  const handleDeleteRecord = (list) => {
+    if (list === "Wishlist") {
+      dispatch(removeUserFromRecord(updateWishlistBodyModel));
+    } else {
+      dispatch(removeUserFromRecord(updateCollectionBodyModel));
+    }
+  };
+
   return (
     <div className="record-display-container">
       <img src={record.images.large} />
@@ -57,12 +64,16 @@ const RecordDisplay = ({
       </div>
       <div className="record-ui-container">
         {recordsToDisplay === "Wishlist" && (
-          <button onClick={() => handleAddRecordToCollection(record)}>
+          <button
+            onClick={() => handleAddRecordToCollectionFromWishlist(record)}
+          >
             {" "}
             + Collect
           </button>
         )}
-        <button>Delete</button>
+        <button onClick={() => handleDeleteRecord(recordsToDisplay)}>
+          Delete
+        </button>
       </div>
     </div>
   );

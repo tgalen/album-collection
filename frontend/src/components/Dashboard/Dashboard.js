@@ -70,6 +70,9 @@ const Dashboard = ({ users }) => {
   return (
     <div className="dashboard-container">
       <h1>Welcome {user && user.userName}</h1>
+      <Link to="/searchrecordstoadd">
+        <button className="search-external-btn">Search Records To Add</button>
+      </Link>
 
       {/* {userCollection && (
         <section className="record-display">
@@ -105,7 +108,7 @@ const Dashboard = ({ users }) => {
           </button>
         </div>
       </section>
-      <section className="record-display">
+      <section className="dashboard-record-display">
         {/* <ArtistList
           records={
             recordsToDisplay === "Collection" ? userCollection : userWishlist
@@ -118,7 +121,7 @@ const Dashboard = ({ users }) => {
         /> */}
         {recordsToDisplay === "Collection"
           ? userCollection &&
-            userCollection.map((record) => {
+            sortCollectedArtistsAlphabetically.map((record) => {
               return (
                 <RecordDisplay
                   record={record}
@@ -131,7 +134,7 @@ const Dashboard = ({ users }) => {
               );
             })
           : userWishlist &&
-            userWishlist.map((record) => {
+            sortWishlistedArtistsAlphabetically.map((record) => {
               return (
                 <RecordDisplay
                   record={record}

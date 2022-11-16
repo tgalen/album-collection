@@ -1,4 +1,4 @@
-.record-display-container {
+.searched-record-container {
   height: 300px;
   width: 150px;
   display: block;
@@ -7,24 +7,18 @@
   color: #e5e7eb;
   /* border-radius: 5px; */
   /* margin-left: 10%;
-  margin-top: 2%; */
+    margin-top: 2%; */
   background-repeat: no-repeat;
   /* background-color: rgb(17 24 39); */
   margin: 2%;
-  /* box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12); */
-  /* border: 1px solid white; */
-  /* box-shadow: 0px 1px whitesmoke; */
-}
-.record-display-container img {
-  width: 100%;
-  margin-top: 5%;
-  /* padding-left: 2%; */
 }
 
-.record-title-container p {
+.searched-record-container img {
+  width: 100%;
+  margin-top: 5%;
+}
+
+.searched-record-title-container p {
   width: 100%;
   /* margin-left: 20%; */
   text-align: center;
@@ -35,21 +29,15 @@
   /* display: block; */
   overflow: hidden;
   text-overflow: ellipsis;
-  /* display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-height: 20px;
-  max-height: 40px; */
 }
 
-.record-ui-container {
+.searched-record-ui-container {
   width: 100%;
   display: flex;
   justify-content: space-around;
   margin: auto;
 }
-
-.record-ui-container button {
+.searched-record-ui-container button {
   background-color: #e5e7eb;
   color: rgb(46, 56, 74);
   width: 45%;

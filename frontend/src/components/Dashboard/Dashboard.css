@@ -9,13 +9,20 @@
   padding-left: 2%;
 }
 
+.search-external-btn {
+  padding: 15px;
+  margin-top: 1%;
+  margin-left: 2%;
+}
+
 .record-display-header-container {
   width: 100%;
   text-align: center;
 }
 
-.record-display {
+.dashboard-record-display {
   text-align: center;
+  margin: auto;
   width: 90%;
   display: flex;
   flex-wrap: wrap;
