@@ -47,25 +47,25 @@ const Dashboard = ({ users }) => {
     setRecordsToDisplay("Wishlist");
   };
 
-  // const sortCollectedArtistsAlphabetically =
-  //   userCollection &&
-  //   userCollection.sort((a, b) => {
-  //     if (a.artist) {
-  //       return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
-  //         ? 1
-  //         : -1;
-  //     }
-  //   });
+  const sortCollectedArtistsAlphabetically =
+    userCollection &&
+    userCollection.sort((a, b) => {
+      if (a.artist) {
+        return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
+          ? 1
+          : -1;
+      }
+    });
 
-  // const sortWishlistedArtistsAlphabetically =
-  //   userWishlist &&
-  //   userWishlist.sort((a, b) => {
-  //     if (a.artist) {
-  //       return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
-  //         ? 1
-  //         : -1;
-  //     }
-  //   });
+  const sortWishlistedArtistsAlphabetically =
+    userWishlist &&
+    userWishlist.sort((a, b) => {
+      if (a.artist) {
+        return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
+          ? 1
+          : -1;
+      }
+    });
 
   return (
     <div className="dashboard-container">

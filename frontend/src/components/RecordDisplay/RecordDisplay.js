@@ -19,6 +19,12 @@ const RecordDisplay = ({
 
   const dispatch = useDispatch();
 
+  const collectBodyModel = {
+    artist: record.artist,
+    name: record.name,
+    collectedUsers: user._id,
+  };
+
   const updateWishlistBodyModel = {
     wishlistedUser: user._id,
     record: record._id,
@@ -39,6 +45,7 @@ const RecordDisplay = ({
     setUserWishlist(updatedWishlist);
     setUserCollection(collectionToUpdate);
     dispatch(removeUserFromRecord(updateWishlistBodyModel));
+    dispatch(addRecordToCollection(collectBodyModel));
   };
 
   return (
