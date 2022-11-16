@@ -17,7 +17,7 @@ const Dashboard = ({ users }) => {
   const WISHLISTED_RECORDS_API =
     "http://localhost:5000/api/records/wishlistedrecords/";
 
-  console.log(user.userName);
+  console.log(userWishlist);
 
   const getUserCollectedRecords = async () => {
     setUserCollection(null);
@@ -47,21 +47,25 @@ const Dashboard = ({ users }) => {
     setRecordsToDisplay("Wishlist");
   };
 
-  const sortCollectedArtistsAlphabetically =
-    userCollection &&
-    userCollection.sort((a, b) => {
-      return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
-        ? 1
-        : -1;
-    });
+  // const sortCollectedArtistsAlphabetically =
+  //   userCollection &&
+  //   userCollection.sort((a, b) => {
+  //     if (a.artist) {
+  //       return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
+  //         ? 1
+  //         : -1;
+  //     }
+  //   });
 
-  const sortWishlistedArtistsAlphabetically =
-    userWishlist &&
-    userWishlist.sort((a, b) => {
-      return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
-        ? 1
-        : -1;
-    });
+  // const sortWishlistedArtistsAlphabetically =
+  //   userWishlist &&
+  //   userWishlist.sort((a, b) => {
+  //     if (a.artist) {
+  //       return a.artist.replace(/^The /, "") > b.artist.replace(/^The /, "")
+  //         ? 1
+  //         : -1;
+  //     }
+  //   });
 
   return (
     <div className="dashboard-container">
@@ -114,7 +118,7 @@ const Dashboard = ({ users }) => {
         /> */}
         {recordsToDisplay === "Collection"
           ? userCollection &&
-            sortCollectedArtistsAlphabetically.map((record) => {
+            userCollection.map((record) => {
               return (
                 <RecordDisplay
                   record={record}
@@ -127,7 +131,7 @@ const Dashboard = ({ users }) => {
               );
             })
           : userWishlist &&
-            sortWishlistedArtistsAlphabetically.map((record) => {
+            userWishlist.map((record) => {
               return (
                 <RecordDisplay
                   record={record}

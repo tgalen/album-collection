@@ -1,3 +1,9 @@
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addRecordToCollection,
+  removeUserFromRecord,
+} from "../../features/records/recordSlice";
+
 import "./RecordDisplay.css";
 
 const RecordDisplay = ({
@@ -8,6 +14,21 @@ const RecordDisplay = ({
   setUserWishlist,
   setUserCollection,
 }) => {
+  const UPDATE_RECORD_API = `http://localhost:5000/api/records/${record._id}`;
+  const { user } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
+  const updateWishlistBodyModel = {
+    wishlistedUser: user._id,
+    record: record._id,
+  };
+
+  const updateCollectionBodyModel = {
+    collectedUser: user._id,
+    record: record._id,
+  };
+
   const handleAddRecordToCollection = (selectedRecord) => {
     const updatedWishlist = userWishlist.filter(
       (wishedRecord) => wishedRecord !== selectedRecord
@@ -17,6 +38,7 @@ const RecordDisplay = ({
     console.log(collectionToUpdate);
     setUserWishlist(updatedWishlist);
     setUserCollection(collectionToUpdate);
+    dispatch(removeUserFromRecord(updateWishlistBodyModel));
   };
 
   return (
