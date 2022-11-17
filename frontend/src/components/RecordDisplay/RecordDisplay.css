@@ -62,3 +62,14 @@
 .record-name {
   font-size: medium;
 }
+/* 
+@media (max-width: 600px) {
+  .record-display-container {
+    height: 100px;
+    width: 90%;
+  }
+
+  .record-display-container img {
+    width: 20%;
+  }
+} */

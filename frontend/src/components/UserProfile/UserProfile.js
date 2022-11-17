@@ -63,6 +63,7 @@ const UserProfile = () => {
         ? 1
         : -1;
     });
+  // userCollection && console.log(userCollection);
   return (
     <div className="profile-content-container">
       <header className="user-display-header">
@@ -93,6 +94,17 @@ const UserProfile = () => {
         </div>
       </section>
       <section className="record-display">
+        {/* <ArtistList
+          records={
+            recordsToDisplay === "Collection" ? userCollection : userWishlist
+          }
+          recordsToDisplay={recordsToDisplay}
+          userCollection={userCollection}
+          userWishlist={userWishlist}
+          setUserCollection={setUserCollection}
+          setUserWishlist={setUserWishlist}
+        /> */}
+
         {recordsToDisplay === "Collection"
           ? userCollection &&
             sortCollectedArtistsAlphabetically.map((record) => {

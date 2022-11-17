@@ -19,18 +19,18 @@ const RecordDisplay = ({
 
   const dispatch = useDispatch();
 
-  const collectBodyModel = {
+  const collectBodyModel = user && {
     artist: record.artist,
     name: record.name,
     collectedUsers: user._id,
   };
 
-  const updateWishlistBodyModel = {
+  const updateWishlistBodyModel = user && {
     wishlistedUsers: user._id,
     record: record._id,
   };
 
-  const updateCollectionBodyModel = {
+  const updateCollectionBodyModel = user && {
     collectedUsers: user._id,
     record: record._id,
   };
@@ -48,10 +48,18 @@ const RecordDisplay = ({
     dispatch(addRecordToCollection(collectBodyModel));
   };
 
-  const handleDeleteRecord = (list) => {
+  const handleDeleteRecord = (list, selectedRecord) => {
     if (list === "Wishlist") {
+      const updatedWishlist = userWishlist.filter(
+        (wishedRecord) => wishedRecord !== selectedRecord
+      );
+      setUserWishlist(updatedWishlist);
       dispatch(removeUserFromRecord(updateWishlistBodyModel));
     } else {
+      const updatedCollection = userCollection.filter(
+        (collectedRecord) => collectedRecord !== selectedRecord
+      );
+      setUserCollection(updatedCollection);
       dispatch(removeUserFromRecord(updateCollectionBodyModel));
     }
   };
@@ -73,7 +81,7 @@ const RecordDisplay = ({
               + Collect
             </button>
           )}
-          <button onClick={() => handleDeleteRecord(recordsToDisplay)}>
+          <button onClick={() => handleDeleteRecord(recordsToDisplay, record)}>
             Delete
           </button>
         </div>
