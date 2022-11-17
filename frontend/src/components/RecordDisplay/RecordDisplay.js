@@ -66,7 +66,7 @@ const RecordDisplay = ({
 
   return (
     <div className="record-display-container">
-      <img src={record.images.large} />
+      <img src={record.images.large} alt={record.name} />
       <div className="record-title-container">
         <p className="artist-name">{record.artist}</p>
         <p className="record-name">{record.name}</p>

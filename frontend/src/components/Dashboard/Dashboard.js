@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import RecordDisplay from "../RecordDisplay/RecordDisplay";
@@ -9,6 +10,7 @@ const Dashboard = ({ users }) => {
   const [userCollection, setUserCollection] = useState(null);
   const [userWishlist, setUserWishlist] = useState(null);
   const [recordsToDisplay, setRecordsToDisplay] = useState("Collection");
+  const [artistSearchTerm, setArtistSearchTerm] = useState("");
   const readOnly = false;
   const { user } = useSelector((state) => state.auth);
   const COLLECTED_RECORDS_API =
@@ -45,6 +47,10 @@ const Dashboard = ({ users }) => {
     setRecordsToDisplay("Wishlist");
   };
 
+  const handleSearchInput = (e) => {
+    setArtistSearchTerm(e.target.value.trim());
+  };
+
   const sortCollectedArtistsAlphabetically =
     userCollection &&
     userCollection.sort((a, b) => {
@@ -60,6 +66,18 @@ const Dashboard = ({ users }) => {
         ? 1
         : -1;
     });
+
+  const filteredCollection =
+    userCollection &&
+    sortCollectedArtistsAlphabetically.filter((record) =>
+      record.artist.toLowerCase().includes(artistSearchTerm.toLocaleLowerCase())
+    );
+
+  const filteredWishlist =
+    userWishlist &&
+    sortWishlistedArtistsAlphabetically.filter((record) =>
+      record.artist.toLocaleLowerCase().includes()
+    );
 
   return (
     <div className="dashboard-container">
@@ -90,10 +108,19 @@ const Dashboard = ({ users }) => {
           </button>
         </div>
       </section>
+      <div className="search-container">
+        <FaSearch />
+        <input
+          type="search"
+          placeholder="Search Artists"
+          value={artistSearchTerm}
+          onChange={handleSearchInput}
+        ></input>
+      </div>
       <section className="dashboard-record-display">
         {recordsToDisplay === "Collection"
           ? userCollection &&
-            sortCollectedArtistsAlphabetically.map((record) => {
+            filteredCollection.map((record) => {
               return (
                 <RecordDisplay
                   record={record}
@@ -107,7 +134,7 @@ const Dashboard = ({ users }) => {
               );
             })
           : userWishlist &&
-            sortWishlistedArtistsAlphabetically.map((record) => {
+            filteredWishlist.map((record) => {
               return (
                 <RecordDisplay
                   record={record}

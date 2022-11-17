@@ -20,6 +20,18 @@
   text-align: center;
 }
 
+.search-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+.search-container input {
+  margin-left: 0.5%;
+}
+
 .dashboard-record-display {
   text-align: center;
   margin: auto;
