@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaSearch } from "react-icons/fa";
 import RecordDisplay from "../RecordDisplay/RecordDisplay";
 import "./UserProfile.css";
 
@@ -9,6 +9,8 @@ const UserProfile = () => {
   const [userCollection, setUserCollection] = useState(null);
   const [userWishlist, setUserWishlist] = useState(null);
   const [recordsToDisplay, setRecordsToDisplay] = useState("Collection");
+  const [artistSearchTerm, setArtistSearchTerm] = useState("");
+
   const readOnly = true;
   const COLLECTED_RECORDS_API =
     "http://localhost:5000/api/records/collectedrecords/";
@@ -47,6 +49,9 @@ const UserProfile = () => {
   const handleWishlistClick = () => {
     setRecordsToDisplay("Wishlist");
   };
+  const handleSearchInput = (e) => {
+    setArtistSearchTerm(e.target.value.trim());
+  };
 
   const sortCollectedArtistsAlphabetically =
     userCollection &&
@@ -63,6 +68,19 @@ const UserProfile = () => {
         ? 1
         : -1;
     });
+
+  const filteredCollection =
+    userCollection &&
+    sortCollectedArtistsAlphabetically.filter((record) =>
+      record.artist.toLowerCase().includes(artistSearchTerm.toLocaleLowerCase())
+    );
+
+  const filteredWishlist =
+    userWishlist &&
+    sortWishlistedArtistsAlphabetically.filter((record) =>
+      record.artist.toLocaleLowerCase().includes()
+    );
+
   // userCollection && console.log(userCollection);
   return (
     <div className="profile-content-container">
@@ -93,6 +111,15 @@ const UserProfile = () => {
           </button>
         </div>
       </section>
+      <div className="search-container">
+        <FaSearch />
+        <input
+          type="search"
+          placeholder="Search Artists"
+          value={artistSearchTerm}
+          onChange={handleSearchInput}
+        ></input>
+      </div>
       <section className="record-display">
         {/* <ArtistList
           records={
@@ -107,7 +134,7 @@ const UserProfile = () => {
 
         {recordsToDisplay === "Collection"
           ? userCollection &&
-            sortCollectedArtistsAlphabetically.map((record) => {
+            filteredCollection.map((record) => {
               return (
                 <RecordDisplay
                   record={record}
@@ -121,7 +148,7 @@ const UserProfile = () => {
               );
             })
           : userWishlist &&
-            sortWishlistedArtistsAlphabetically.map((record) => {
+            filteredWishlist.map((record) => {
               return (
                 <RecordDisplay
                   record={record}

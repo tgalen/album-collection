@@ -3,6 +3,8 @@
   margin-top: 0;
   width: 100%;
   min-height: 85vh;
+  background-color: rgb(17 24 39);
+  color: #ffffff;
 }
 
 .user-display-header {
@@ -39,6 +41,13 @@
 .record-display-header-container {
   width: 100%;
   text-align: center;
+}
+.search-container input {
+  margin-left: 0.5%;
+  border: 0;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  width: 300px;
+  background-color: rgb(68, 76, 96);
 }
 
 .record-display {
