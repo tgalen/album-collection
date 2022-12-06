@@ -3,7 +3,7 @@
   margin-top: 0;
   width: 100%;
   min-height: 85vh;
-  background-color: rgb(17 24 39);
+  background-color: #262626;
   color: #ffffff;
 }
 
@@ -56,7 +56,7 @@
   padding: 1%;
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(46, 56, 74);
+  background-color: #262626;
 }
 
 .record-data-container {
