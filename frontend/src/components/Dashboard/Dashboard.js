@@ -76,7 +76,9 @@ const Dashboard = ({ users }) => {
   const filteredWishlist =
     userWishlist &&
     sortWishlistedArtistsAlphabetically.filter((record) =>
-      record.artist.toLocaleLowerCase().includes()
+      record.artist
+        .toLocaleLowerCase()
+        .includes(artistSearchTerm.toLocaleLowerCase())
     );
 
   return (
