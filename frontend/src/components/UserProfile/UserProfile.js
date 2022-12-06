@@ -78,9 +78,12 @@ const UserProfile = () => {
   const filteredWishlist =
     userWishlist &&
     sortWishlistedArtistsAlphabetically.filter((record) =>
-      record.artist.toLocaleLowerCase().includes()
+      record.artist
+        .toLocaleLowerCase()
+        .includes(artistSearchTerm.toLocaleLowerCase())
     );
-
+  userWishlist && console.log(sortWishlistedArtistsAlphabetically.length);
+  userWishlist && console.log(filteredWishlist.length);
   // userCollection && console.log(userCollection);
   return (
     <div className="profile-content-container">
