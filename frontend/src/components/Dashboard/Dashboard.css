@@ -1,6 +1,7 @@
 .dashboard-container {
   width: 100%;
   min-height: 85vh;
+  background-color: #e1ecfa;
 }
 
 .dashboard-container h1 {
@@ -33,6 +34,9 @@
   border: 0;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
   width: 300px;
+  border-radius: 10px;
+  height: 25px;
+  background-color: #e1ecfa;
 }
 
 .dashboard-record-display {
