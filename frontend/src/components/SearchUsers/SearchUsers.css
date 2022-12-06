@@ -3,6 +3,8 @@
   min-height: 85vh;
   margin: 0;
   padding: 0;
+  background-color: #262626;
+  color: #e5e7ebbd;
 }
 
 .search-users-header {
