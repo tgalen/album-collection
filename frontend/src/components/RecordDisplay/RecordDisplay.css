@@ -4,7 +4,7 @@
   display: block;
   align-items: center;
   background-color: #262626;
-  color: #e5e7eb;
+  color: #e5e7ebbd;
   /* border-radius: 5px; */
   /* margin-left: 10%;
   margin-top: 2%; */
@@ -49,9 +49,15 @@
   margin: auto;
 }
 
-.record-ui-container button {
-  background-color: #e5e7eb;
-  color: rgb(46, 56, 74);
+.collect-btn {
+  background-color: #595856;
+  color: #a8ff3e;
+  width: 45%;
+}
+
+.delete-btn {
+  background-color: #595856;
+  color: #f30067;
   width: 45%;
 }
 

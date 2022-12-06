@@ -4,6 +4,7 @@
   min-height: 85vh;
   width: 100%;
   display: flex;
+  background-color: #bfbbb8;
 }
 
 .login-form-container {

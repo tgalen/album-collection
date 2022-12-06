@@ -1,9 +1,9 @@
 .header {
-  background-color: #262626;
+  background-color: #0d0d0d;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: #e5e7ebbd;
   height: 10vh;
   overflow: visible;
   margin: 0;
@@ -25,7 +25,7 @@
   list-style: none;
   display: block;
   padding: 1rem;
-  background-color: #516675;
+  background-color: #0d0d0d;
   z-index: 10;
 }
 

@@ -76,12 +76,16 @@ const RecordDisplay = ({
           {recordsToDisplay === "Wishlist" && (
             <button
               onClick={() => handleAddRecordToCollectionFromWishlist(record)}
+              className="collect-btn"
             >
               {" "}
               + Collect
             </button>
           )}
-          <button onClick={() => handleDeleteRecord(recordsToDisplay, record)}>
+          <button
+            onClick={() => handleDeleteRecord(recordsToDisplay, record)}
+            className="delete-btn"
+          >
             Delete
           </button>
         </div>
