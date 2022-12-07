@@ -38,7 +38,7 @@
   color: lightgrey;
   cursor: pointer;
   border-radius: 5px;
-  border: solid #ffa41b 0.5px;
+  border: solid #ffa41b 1px;
   color: #ffa41b;
 }
 .clear-search-btn:hover {

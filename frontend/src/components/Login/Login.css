@@ -43,7 +43,8 @@
 
 .login-form-container button {
   background-color: black;
-  color: white;
+  border: 1px solid #ffa41b;
+  color: #ffa41b;
   margin-top: 3%;
   border-radius: 5px;
   padding: 2% 15%;
@@ -52,5 +53,6 @@
 }
 
 .login-form-container button:hover {
-  background-color: coral;
+  background-color: #ffa41b;
+  color: black;
 }
