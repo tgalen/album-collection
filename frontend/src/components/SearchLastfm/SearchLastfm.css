@@ -1,5 +1,7 @@
 .search-lastfm-container {
   min-height: 85vh;
+  background-color: #262626;
+  color: #e5e7ebbd;
 }
 
 .search-user-profile-container {
@@ -23,7 +25,7 @@
 .search-results-container {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(46, 56, 74);
+  background-color: #1d1d1d;
   width: 90%;
   margin: auto;
 }

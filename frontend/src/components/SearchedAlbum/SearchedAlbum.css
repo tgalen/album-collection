@@ -3,8 +3,8 @@
   width: 150px;
   display: block;
   align-items: center;
-  background-color: rgb(46, 56, 74);
-  color: #e5e7eb;
+  background-color: #1d1d1d;
+  color: #e5e7ebbd;
   /* border-radius: 5px; */
   /* margin-left: 10%;
     margin-top: 2%; */
@@ -37,11 +37,6 @@
   justify-content: space-around;
   margin: auto;
 }
-.searched-record-ui-container button {
-  background-color: #e5e7eb;
-  color: rgb(46, 56, 74);
-  width: 45%;
-}
 
 .artist-name {
   font-size: smaller;
@@ -49,4 +44,19 @@
 
 .record-name {
   font-size: medium;
+}
+
+.collect-btn {
+  background-color: #595856;
+  color: #a8ff3e;
+  width: 45%;
+  border: #a8ff3e solid 1px;
+}
+
+.wishlist-btn {
+  background-color: #595856;
+  color: #f7fd04;
+  width: 45%;
+  border: #f7fd04 solid 1px;
+  font-size: 80%;
 }

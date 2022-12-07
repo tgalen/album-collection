@@ -39,12 +39,18 @@ const SearchedAlbum = ({ info, images }) => {
         <p className="record-name">{info.name}</p>
       </div>
       <div className="searched-record-ui-container">
-        <button onClick={() => handleAddRecordToCollection(collectBodyModel)}>
+        <button
+          onClick={() => handleAddRecordToCollection(collectBodyModel)}
+          className="collect-btn"
+        >
           {" "}
           + Collect
         </button>
 
-        <button onClick={() => handleAddRecordToWishlist(wishlistBodyModel)}>
+        <button
+          onClick={() => handleAddRecordToWishlist(wishlistBodyModel)}
+          className="wishlist-btn"
+        >
           + Wishlist
         </button>
       </div>

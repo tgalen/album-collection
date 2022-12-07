@@ -53,12 +53,14 @@
   background-color: #595856;
   color: #a8ff3e;
   width: 45%;
+  border: #a8ff3e solid 1px;
 }
 
 .delete-btn {
   background-color: #595856;
   color: #f30067;
   width: 45%;
+  border: #f30067 solid 1px;
 }
 
 .artist-name {
