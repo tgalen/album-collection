@@ -12,7 +12,6 @@ const SearchLastfm = () => {
   const NODE_ENDPOINT = `http://localhost:5000/search/${searchTerm}`;
 
   const handleSearch = () => {
-    // change to axios
     fetch(NODE_ENDPOINT)
       .then((response) => {
         if (response.ok) {

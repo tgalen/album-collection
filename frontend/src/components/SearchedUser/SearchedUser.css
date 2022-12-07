@@ -1,13 +1,14 @@
 button {
   background-color: black;
-  color: white;
   border: none;
   border-radius: 5px;
   padding: 5px;
+  border: solid #ffa41b 0.5px;
+  color: #ffa41b;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: coral;
+  background-color: #ffa41b;
   color: black;
 }

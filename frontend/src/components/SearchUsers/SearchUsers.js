@@ -4,13 +4,7 @@ import SearchedUser from "../SearchedUser/SearchedUser";
 import UserProfile from "../UserProfile/UserProfile";
 import "./SearchUsers.css";
 
-const SearchUSers = ({
-  users,
-  userSearchInput,
-  setUserSearchInput,
-  // searchedUser,
-  // setSearchedUser,
-}) => {
+const SearchUSers = ({ users, userSearchInput, setUserSearchInput }) => {
   const handleUserSearchInput = (e) => {
     setUserSearchInput(e.target.value.trim());
   };
@@ -24,7 +18,6 @@ const SearchUSers = ({
     });
 
   const handleClearUserSearch = () => {
-    // setSearchedUser(null);
     setUserSearchInput("");
   };
 
@@ -67,7 +60,6 @@ const SearchUSers = ({
             })}
           </div>
         )}
-        {/* {searchedUser && <UserProfile searchedUser={searchedUser} />} */}
       </div>
     </div>
   );

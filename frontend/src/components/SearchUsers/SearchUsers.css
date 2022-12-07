@@ -38,9 +38,11 @@
   color: lightgrey;
   cursor: pointer;
   border-radius: 5px;
+  border: solid #ffa41b 0.5px;
+  color: #ffa41b;
 }
 .clear-search-btn:hover {
-  background-color: coral;
+  background-color: #ffa41b;
   color: black;
 }
 

@@ -26,7 +26,6 @@ const UserProfile = () => {
     setUserCollection(null);
 
     const response = await axios.get(COLLECTED_RECORDS_API + userName);
-    response && console.log(response);
     setUserCollection(response.data);
   };
 
@@ -84,7 +83,6 @@ const UserProfile = () => {
     );
   userWishlist && console.log(sortWishlistedArtistsAlphabetically.length);
   userWishlist && console.log(filteredWishlist.length);
-  // userCollection && console.log(userCollection);
   return (
     <div className="profile-content-container">
       <header className="user-display-header">
@@ -123,17 +121,6 @@ const UserProfile = () => {
         ></input>
       </div>
       <section className="record-display">
-        {/* <ArtistList
-          records={
-            recordsToDisplay === "Collection" ? userCollection : userWishlist
-          }
-          recordsToDisplay={recordsToDisplay}
-          userCollection={userCollection}
-          userWishlist={userWishlist}
-          setUserCollection={setUserCollection}
-          setUserWishlist={setUserWishlist}
-        /> */}
-
         {recordsToDisplay === "Collection"
           ? userCollection &&
             filteredCollection.map((record) => {

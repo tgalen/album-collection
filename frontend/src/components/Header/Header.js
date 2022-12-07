@@ -10,11 +10,6 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
 import "./Header.css";
-import logo from "../../assets/RecordKeeprLogo60b0f4.png";
-// const headerStyle = {
-//   padding: "2%",
-//   position: "relative",
-// };
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
@@ -114,7 +109,5 @@ const Header = () => {
     </header>
   );
 };
-
-//make a record station with some album cover decore, modern record table, speakers on sides
 
 export default Header;
