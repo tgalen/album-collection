@@ -93,6 +93,11 @@
     height: 200px;
     width: 100px;
   }
+
+  .record-ui-container {
+    position: absolute;
+    right: 1%;
+  }
 }
 
 @media (max-width: 700px) {
@@ -122,6 +127,9 @@
   }
   .rd-record-name {
     font-size: 12px;
+  }
+  .record-ui-container {
+    float: right;
   }
 
   .record-ui-container button {

@@ -90,7 +90,6 @@ const UserProfile = () => {
       <header className="user-display-header">
         <FaUser />
         <h1>{userName}</h1>
-        <button>Favorite</button>
       </header>
       <div className="record-display-header-container">
         <h2>{recordsToDisplay}</h2>
