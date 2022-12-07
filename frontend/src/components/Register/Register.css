@@ -55,10 +55,10 @@
   background-color: coral;
 }
 
-/* @media (max-width: 800px) {
+@media (max-width: 800px) {
   .registration-form-container {
     margin: 20% auto;
     height: 80%;
     padding: 10%;
   }
-} */
+}

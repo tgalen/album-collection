@@ -71,7 +71,7 @@
   }
 
   .toggle-button:hover {
-    background-color: cadetblue;
+    background-color: #ffa41b;
   }
 
   .nav-container {
@@ -96,7 +96,7 @@
   }
 
   .nav-container li :hover {
-    background-color: cadetblue;
+    background-color: #ffa41b;
     border: none;
   }
 

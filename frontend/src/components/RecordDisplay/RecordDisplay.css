@@ -19,7 +19,7 @@
   /* box-shadow: 0px 1px whitesmoke; */
 }
 .record-display-container img {
-  width: 100%;
+  height: 50%;
   margin-top: 5%;
   /* padding-left: 2%; */
 }
@@ -69,11 +69,11 @@
   background-color: #fa163f;
 }
 
-.artist-name {
+.rd-artist-name {
   font-size: smaller;
 }
 
-.record-name {
+.rd-record-name {
   font-size: medium;
 }
 /* 
@@ -87,3 +87,44 @@
     width: 20%;
   }
 } */
+
+@media (min-width: 701px) and (max-width: 829px) {
+  .record-display-container {
+    height: 200px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 700px) {
+  .record-display-container {
+    display: flex;
+    width: 90%;
+    height: 75px;
+    align-items: center;
+    margin-top: 0.5%;
+  }
+
+  .record-display-container img {
+    height: 90%;
+    margin-right: 5%;
+  }
+
+  .record-title-container {
+    min-width: 35%;
+  }
+
+  .record-title-container p {
+    text-align: left;
+  }
+
+  .rd-artist-name {
+    font-size: 10px;
+  }
+  .rd-record-name {
+    font-size: 12px;
+  }
+
+  .record-ui-container button {
+    font-size: 10px;
+  }
+}
