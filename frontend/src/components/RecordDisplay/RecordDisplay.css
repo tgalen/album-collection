@@ -51,16 +51,22 @@
 
 .collect-btn {
   background-color: #595856;
-  color: #a8ff3e;
+  color: rgba(255, 255, 255, 0.598);
   width: 45%;
-  border: #a8ff3e solid 1px;
+}
+
+.collect-btn:hover {
+  background-color: #a8ff3e;
 }
 
 .delete-btn {
   background-color: #595856;
-  color: #f30067;
+  color: rgba(255, 255, 255, 0.598);
   width: 45%;
-  border: #f30067 solid 1px;
+}
+
+.delete-btn:hover {
+  background-color: #fa163f;
 }
 
 .artist-name {

@@ -48,15 +48,16 @@
 
 .collect-btn {
   background-color: #595856;
-  color: #a8ff3e;
+  color: rgba(255, 255, 255, 0.598);
   width: 45%;
-  border: #a8ff3e solid 1px;
 }
 
 .wishlist-btn {
   background-color: #595856;
-  color: #f7fd04;
+  color: rgba(255, 255, 255, 0.598);
   width: 45%;
-  border: #f7fd04 solid 1px;
-  font-size: 80%;
+}
+
+.wishlist-btn:hover {
+  background-color: #f7fd04;
 }
