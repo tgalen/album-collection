@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addRecordToCollection } from "../../features/records/recordSlice";
 import "./SearchedAlbum.css";
 
 const SearchedAlbum = ({ info, images }) => {
   const { user } = useSelector((state) => state.auth);
+  const [collected, setCollected] = useState(null);
+  const [wishlisted, setWishlisted] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -25,14 +28,18 @@ const SearchedAlbum = ({ info, images }) => {
 
   const handleAddRecordToCollection = () => {
     dispatch(addRecordToCollection(collectBodyModel));
+    setCollected(true);
   };
 
   const handleAddRecordToWishlist = () => {
     dispatch(addRecordToCollection(wishlistBodyModel));
+    setWishlisted(true);
   };
 
   return (
     <div className="searched-record-container">
+      {collected && <div className="collected-display"> Collected</div>}
+      {wishlisted && <div className="wished-display">Wished</div>}
       <img src={images.large} />
       <div className="searched-record-title-container">
         <p className="artist-name">{info.artist}</p>
