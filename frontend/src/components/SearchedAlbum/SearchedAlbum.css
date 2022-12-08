@@ -14,7 +14,7 @@
 }
 
 .searched-record-container img {
-  width: 100%;
+  height: 50%;
   margin-top: 5%;
 }
 
@@ -51,13 +51,63 @@
   color: rgba(255, 255, 255, 0.598);
   width: 45%;
 }
+.collect-btn:hover {
+  background-color: #a8ff3e;
+}
 
 .wishlist-btn {
   background-color: #595856;
   color: rgba(255, 255, 255, 0.598);
   width: 45%;
+  border: none;
 }
 
 .wishlist-btn:hover {
   background-color: #f7fd04;
+}
+
+@media (min-width: 701px) and (max-width: 829px) {
+  .searched-record-container {
+    height: 200px;
+    width: 100px;
+  }
+
+  .searched-record-ui-container button {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  .searched-record-container {
+    display: flex;
+    width: 90%;
+    height: 75px;
+    align-items: center;
+    margin-top: 0.5%;
+  }
+
+  .searched-record-container img {
+    height: 90%;
+    margin-right: 5%;
+  }
+
+  .searched-record-title-container {
+    min-width: 35%;
+  }
+
+  .searched-record-title-container p {
+    text-align: left;
+  }
+
+  .artist-name {
+    font-size: 10px;
+  }
+
+  .record-name {
+    font-size: 12px;
+  }
+
+  .searched-record-ui-container button {
+    font-size: 8px;
+  }
 }

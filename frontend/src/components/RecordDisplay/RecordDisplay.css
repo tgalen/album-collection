@@ -53,6 +53,7 @@
   background-color: #595856;
   color: rgba(255, 255, 255, 0.598);
   width: 45%;
+  border: none;
 }
 
 .collect-btn:hover {
@@ -63,6 +64,7 @@
   background-color: #595856;
   color: rgba(255, 255, 255, 0.598);
   width: 45%;
+  border: none;
 }
 
 .delete-btn:hover {
@@ -94,9 +96,8 @@
     width: 100px;
   }
 
-  .record-ui-container {
-    position: absolute;
-    right: 1%;
+  .record-ui-container button {
+    font-size: 8px;
   }
 }
 

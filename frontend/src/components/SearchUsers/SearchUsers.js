@@ -25,7 +25,8 @@ const SearchUSers = ({ users, userSearchInput, setUserSearchInput }) => {
     <div className="search-users-container">
       <section className="search-users-header">
         <h1>Search Users</h1>
-        <h3>{`${users.length} registered users`}</h3>
+        <h5>{`${users.length} registered users`}</h5>
+        <p>Find a user and view their collection and wishlist</p>
         <div className="search-input-container">
           <input
             className="search-user-input"
