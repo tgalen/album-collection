@@ -30,11 +30,12 @@
   margin: auto;
 }
 .login-form-container .form-group input {
-  border-radius: 5px;
   border: 1px solid gray;
   padding: 1%;
   margin: 1.5%;
   width: 70%;
+  background-color: #bfbbb8;
+  border-radius: 10px;
 }
 
 .login-form-container a {

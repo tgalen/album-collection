@@ -31,7 +31,8 @@
 }
 
 .registration-form-container .form-group input {
-  border-radius: 5px;
+  background-color: #bfbbb8;
+  border-radius: 10px;
   border: 1px solid gray;
   padding: 1%;
   margin: 1.5%;
