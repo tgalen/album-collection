@@ -21,13 +21,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 50px;
 }
 .search-user-input {
-  border-radius: 5px;
+  margin-left: 0.5%;
+  border: 0;
+  box-shadow: 0 6px 10px 0 rgb(0 0 0 / 10%);
+  width: 300px;
+  background-color: #bfbbb8;
+  border-radius: 10px;
+  height: 25px;
+  /* border-radius: 5px;
   border: 1px solid gray;
   padding: 1%;
   width: 100%;
-  max-width: 200px;
+  max-width: 200px; */
 }
 
 .clear-search-btn {

@@ -28,6 +28,7 @@ const SearchUSers = ({ users, userSearchInput, setUserSearchInput }) => {
         <h5>{`${users.length} registered users`}</h5>
         <p>Find a user and view their collection and wishlist</p>
         <div className="search-input-container">
+          <FaSearch />
           <input
             className="search-user-input"
             type="text"
