@@ -42,6 +42,7 @@ const SearchLastfm = () => {
         type="text"
         value={searchTerm}
         onChange={handleInputOnchange}
+        placeholder="search artist or album"
       ></input>
       <button onClick={handleSearch}>Search</button>
       <div className="search-results-container">
