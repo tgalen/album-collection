@@ -13,10 +13,10 @@ const UserProfile = () => {
 
   const readOnly = true;
   const COLLECTED_RECORDS_API =
-    "http://localhost:5000/api/records/collectedrecords/";
+    "https://recordkeepr.herokuapp.com/api/records/collectedrecords/";
 
   const WISHLISTED_RECORDS_API =
-    "http://localhost:5000/api/records/wishlistedrecords/";
+    "https://recordkeepr.herokuapp.com/api/records/wishlistedrecords/";
 
   const currentURL = window.location.href;
   const splitURL = currentURL.split("/");

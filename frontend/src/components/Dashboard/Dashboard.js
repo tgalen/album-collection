@@ -14,10 +14,10 @@ const Dashboard = ({ users }) => {
   const readOnly = false;
   const { user } = useSelector((state) => state.auth);
   const COLLECTED_RECORDS_API =
-    "http://localhost:5000/api/records/collectedrecords/";
+    "https://recordkeepr.herokuapp.com/api/records/collectedrecords/";
 
   const WISHLISTED_RECORDS_API =
-    "http://localhost:5000/api/records/wishlistedrecords/";
+    "https://recordkeepr.herokuapp.com/api/records/wishlistedrecords/";
 
   const getUserCollectedRecords = async () => {
     setUserCollection(null);
