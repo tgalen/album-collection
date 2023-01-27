@@ -9,7 +9,7 @@ const SearchLastfm = () => {
   const [searchResults, setSeachResults] = useState(null);
   const { user } = useSelector((state) => state.auth);
 
-  const NODE_ENDPOINT = `http://localhost:5000/search/${searchTerm}`;
+  const NODE_ENDPOINT = `https://recordkeepr.herokuapp.com/search/${searchTerm}`;
 
   const handleSearch = () => {
     fetch(NODE_ENDPOINT)
