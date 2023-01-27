@@ -15,7 +15,7 @@ import "./App.css";
 function App() {
   const [users, setUsers] = useState(null);
   const [userSearchInput, setUserSearchInput] = useState("");
-  const USERS_API = "http://localhost:5000/api/users/";
+  const USERS_API = "https://recordkeepr.herokuapp.com/api/users/";
 
   const getUsers = async () => {
     const response = await axios.get(USERS_API);
